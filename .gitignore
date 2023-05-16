@@ -5,3 +5,4 @@ coverage/
 .module-cache
 .pnpm-debug.log
 node_modules
+dist/
