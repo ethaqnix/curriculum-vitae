@@ -13,6 +13,26 @@
     }
 }
 
+@keyframes img-hover-amination {
+    0% {
+        background-position: top left;
+    }
+    25% {
+        background-position: top right;
+    }
+
+    50% {
+        background-position: bottom right;
+    }
+
+    75% {
+        background-position: bottom left;
+    }
+    100% {
+        background-position: top left;
+    }
+}
+
 .imageGallery {
     display: flex;
     flex-direction: row;
@@ -33,6 +53,15 @@
             border-radius: 50%;
             width: 100px;
             height: 100px;
+            padding: 10px;
+        }
+
+        img:hover,
+        img:focus {
+            background-image: radial-gradient(transparent 30%, white);
+            background-position: left;
+            background-size: 150% 150%;
+            animation: img-hover-amination 4s linear infinite;
         }
     }
 
