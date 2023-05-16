@@ -10,7 +10,7 @@ const CV = () => {
                 <div className={styles.contactInformations}>
                     <h3>contacts :</h3>
                     <p>email: romain.denizot.pro@gmail.com</p>
-                    <p>phone: 06 88 19 55 04</p>
+                    <p>phone: 06 95 94 65 09</p>
                 </div>
                 <div className={styles.langages}>
                     <h3>langues :</h3>
@@ -20,7 +20,7 @@ const CV = () => {
                 <div className={styles.interests}>
                     <h3>centre d'intéret :</h3>
                     <p>Echecs</p>
-                    <p>Musique</p>
+                    <p>Musique: {'<icon with link>'}</p>
                 </div>
                 <div className={styles.social}>github - linkedin</div>
             </div>
