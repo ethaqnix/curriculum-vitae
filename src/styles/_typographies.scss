@@ -1,0 +1,73 @@
+:root {
+    --ff-body: 'Heebo', sans-serif;
+    --ff-heading: 'Oswald', sans-serif;
+
+    --fs-xl: clamp(3.5rem, 10vw + 1rem, 10rem);
+    --fs-600: 2rem;
+    --fs-400: 1rem;
+}
+
+@media (min-width: 40em) {
+    :root {
+        --fs-600: 3rem;
+        --fs-400: 1.125rem;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.flow > * + * {
+    margin-top: var(--flow-spacer, 1em);
+}
+
+body {
+    font-family: var(--ff-body);
+    font-size: var(--fs-400);
+    line-height: 1.6;
+}
+
+h1,
+blockquote {
+    font-family: var(--ff-heading);
+    font-weight: 900;
+}
+
+h1 {
+    font-size: var(--fs-xl);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+blockquote {
+    font-size: var(--fs-600);
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+blockquote::before {
+    content: open-quote;
+}
+
+blockquote::after {
+    content: close-quote;
+}

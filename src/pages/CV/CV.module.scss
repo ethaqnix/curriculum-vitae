@@ -1,0 +1,94 @@
+.root {
+    --row-heigth: calc(100 / 6 * 1% * 1px);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    padding: var(--space-6);
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        'picture history history'
+        'profile history history'
+        'profile history history';
+    * {
+        height: var(--row-heigth);
+    }
+}
+
+.profile {
+    display: grid;
+    grid-template-areas:
+        'contacts'
+        'langages'
+        'interests'
+        'social';
+    grid-area: profile;
+}
+
+.picture {
+    grid-area: picture;
+}
+
+.interests {
+    grid-area: interests;
+}
+
+.social {
+    grid-area: social;
+}
+
+.langages {
+    grid-area: langages;
+}
+
+.title {
+    grid-area: title;
+}
+
+.contacts {
+    grid-area: contacts;
+}
+
+@media screen and (max-width: 1050px) {
+    .root {
+        padding: var(--space-3);
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr;
+        grid-template-areas:
+            'picture history history'
+            'picture history history'
+            'profile history history'
+            'profile history history'
+            'profile history history'
+            'profile history history';
+    }
+    .profile {
+        display: grid;
+        grid-template-areas:
+            'contacts'
+            'langages'
+            'interests'
+            'social';
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .root {
+        padding: var(--space-4);
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'picture'
+            'profile'
+            'history';
+    }
+    .profile {
+        display: grid;
+        grid-template-areas:
+            'contacts'
+            'langages'
+            'interests'
+            'social';
+    }
+}

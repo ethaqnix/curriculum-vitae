@@ -1,0 +1,78 @@
+@import "../Sharigan.module.scss";
+
+// svg 100 / 75
+@mixin rotation($name, $from, $to) {
+    @keyframes #{$name} {
+        0% { 
+            transform: rotate($from);
+            opacity: 1;
+        }
+        100% { 
+            opacity: 1;
+            transform: rotate($to);
+        }
+    }
+}
+
+
+.tomoe-container {
+    z-index: 2;
+    margin: calc(var(--eye-width) * 0.15);
+    position: absolute;
+    transform-origin: calc(var(--eye-width) * 0.35) calc(var(--eye-width) * 0.35);
+}
+
+.tomoe {
+    rotate: 200deg;
+    scale: 1 -1;
+    width: calc(var(--eye-width) / 10);
+    height: calc(var(--eye-width) / 1000 * 75);
+}
+
+.first-tomoe-first, .first-tomoe-second, .first-tomoe-third {
+    @include rotation(firstTomoeRotation, 0deg, 360deg);
+    animation: firstTomoeRotation 2s linear;
+    animation-iteration-count: 1;
+}
+
+.first-tomoe-fourth { 
+    @include rotation(firstTomoeDisparition, 0deg, 360deg);
+    animation: firstTomoeDisparition 2s linear, disappear 1s linear;
+    animation-iteration-count: 1;
+    opacity: 0;
+}
+
+.second-tomoe-second {
+    @include rotation(secondTomoeApparition, 0deg, 180deg);
+    animation: secondTomoeApparition 2s linear;
+    transform: rotate(180deg);
+    animation-iteration-count: 1;
+}
+
+.second-tomoe-third {
+    @include rotation(secondTomoeRotation, 180deg, 480deg);
+    animation: secondTomoeRotation 2s linear;
+    transform: rotate(120deg);
+    animation-iteration-count: 1;
+}
+
+.second-tomoe-fourth { 
+    @include rotation(secondTomoeDisparition, 120deg, 720deg);
+    animation: secondTomoeDisparition 2s linear;
+    animation-iteration-count: 1;
+    opacity: 0;
+}
+
+.third-tomoe {
+    @include rotation(thirdTomoeApparition, 0deg, 240deg);
+    animation: thirdTomoeApparition 2s linear;
+    transform: rotate(240deg);
+    animation-iteration-count: 1;
+}
+
+.third-tomoe-fourth { 
+    @include rotation(thirdTomoeDisparition, 240deg, 720deg);
+    animation: thirdTomoeDisparition 2s linear;
+    animation-iteration-count: 1;
+    opacity: 0;
+}

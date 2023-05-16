@@ -1,0 +1,30 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.animated-list {
+    position: relative;
+    top: 0;
+
+    .animated-list-item {
+        position: absolute;
+        transition: top 2s;
+        display: block;
+        z-index: 1;
+        opacity: 0;
+    }
+
+    @for $i from 0 to 5 {
+        @warn $i;
+        .animated-list-item-#{$i} {
+            animation: fadeIn 4s;
+            z-index: 1;
+            top: calc(($i) * (30px + var(--space-2)));
+            opacity: 1;
+        }
+    }
+}

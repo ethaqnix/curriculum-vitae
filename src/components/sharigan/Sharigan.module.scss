@@ -1,0 +1,65 @@
+:root {
+    --eye-size-number: 100;
+    --eye-width: 50px;
+}
+
+.eye {
+    width: var(--eye-width);
+    min-width: var(--eye-width);
+    height: var(--eye-width);
+    background: radial-gradient(black, #850606, black);
+    border-radius: 50%;
+    position: relative;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: calc(var(--eye-width) / 10);
+    height: calc(var(--eye-width) / 10);
+    background-color: black;
+}
+
+.circle {
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(var(--eye-width) * 0.6);
+    height: calc(var(--eye-width) * 0.6);
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: radial-gradient(rgba(255, 255, 255, 0.1), #850606);
+    animation: fade-in 2s linear;
+}
+
+.circle-disparition {
+    animation: fade-out 4s linear;
+    opacity: 0;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

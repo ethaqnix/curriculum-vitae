@@ -1,0 +1,27 @@
+.experiences {
+    grid-area: experiences;
+}
+
+.formations {
+    grid-area: formations;
+}
+
+.software {
+    grid-area: software;
+}
+
+.skills {
+    grid-area: skills;
+}
+
+.history {
+    position: relative;
+    display: grid;
+    grid-template-areas:
+        'experiences experiences'
+        'formations formations'
+        'software skills';
+    grid-area: history;
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
+}
