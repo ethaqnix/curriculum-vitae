@@ -1,13 +1,13 @@
-import react from '@vitejs/plugin-react-swc';
-import * as path from 'path';
-import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc'
+import * as path from 'path'
+import { defineConfig } from 'vite'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import EnvironmentPlugin from 'vite-plugin-environment';
-import svgrPlugin from 'vite-plugin-svgr';
+import EnvironmentPlugin from 'vite-plugin-environment'
+import svgrPlugin from 'vite-plugin-svgr'
 
 export default defineConfig(() => {
     return {
-        base: process.env.NODE_ENV === 'development' ? '/' : '/ppa/',
+        base: '/curriculum-vitae/',
         envDir: './config',
         plugins: [
             react(),
@@ -32,24 +32,24 @@ export default defineConfig(() => {
             rollupOptions: {
                 output: {
                     manualChunks: (id) => {
-                        let chunkName;
+                        let chunkName
 
                         if (id.includes('node_modules')) {
                             chunkName = id
                                 .toString()
                                 .split('node_modules/')[1]
                                 .split('/')[1]
-                                .toString();
+                                .toString()
                         }
 
                         if (
                             ['react', 'react-router-dom', 'react-dom'].some(
-                                (key) => chunkName && chunkName.startsWith(key),
+                                (key) => chunkName && chunkName.startsWith(key)
                             )
                         )
-                            return 'vendor';
+                            return 'vendor'
 
-                        return chunkName;
+                        return chunkName
                     },
                     esModule: true,
                     interop: 'compat',
@@ -72,5 +72,5 @@ export default defineConfig(() => {
                 '@utils': path.resolve(__dirname, './src/utils'),
             },
         },
-    };
-});
+    }
+})
