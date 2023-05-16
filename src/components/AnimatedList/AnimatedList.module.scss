@@ -19,7 +19,6 @@
     }
 
     @for $i from 0 to 5 {
-        @warn $i;
         .animated-list-item-#{$i} {
             animation: fadeIn 4s;
             z-index: 1;
