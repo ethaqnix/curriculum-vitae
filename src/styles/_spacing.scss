@@ -1,22 +1,49 @@
-:root {
-    --space-0: 0.1rem;
-    --space-1: 0.2rem;
-    --space-2: 0.4rem;
-    --space-3: 0.8rem;
-    --space-4: 1.2rem;
-    --space-5: 1.6rem;
-    --space-6: 2rem;
-    --space-7: 2.4rem;
-    --space-8: 3.2rem;
-    --space-9: 4rem;
-    --space-10: 4.8rem;
-    --space-11: 5.6rem;
-    --space-12: 6.4rem;
-    --space-13: 7.2rem;
-    --space-14: 8rem;
-    --space-15: 10.4rem;
-    --space-16: 12rem;
-    --space-17: 13rem;
-    --space-18: 14rem;
-    --space-19: 17rem;
+@media screen and (min-height: 820px) {
+    :root {
+        --space-0: 0.1rem;
+        --space-1: 0.2rem;
+        --space-2: 0.4rem;
+        --space-3: 0.8rem;
+        --space-4: 1.2rem;
+        --space-5: 1.6rem;
+        --space-6: 2rem;
+        --space-7: 2.4rem;
+        --space-8: 3.2rem;
+        --space-9: 4rem;
+        --space-10: 4.8rem;
+        --space-11: 5.6rem;
+        --space-12: 6.4rem;
+        --space-13: 7.2rem;
+        --space-14: 8rem;
+        --space-15: 10.4rem;
+        --space-16: 12rem;
+        --space-17: 13rem;
+        --space-18: 14rem;
+        --space-19: 17rem;
+    }
+}
+
+@media screen and (max-height: 820px) {
+    :root {
+        --space-0: 0.1rem;
+        --space-1: 0.15rem;
+        --space-2: 0.2rem;
+        --space-3: 0.4rem;
+        --space-4: 0.8rem;
+        --space-5: 1.2rem;
+        --space-6: 1.6rem;
+        --space-7: 2rem;
+        --space-8: 2.4rem;
+        --space-9: 3.2rem;
+        --space-10: 3.6rem;
+        --space-11: 4rem;
+        --space-12: 4.6rem;
+        --space-13: 5.6rem;
+        --space-14: 6.4rem;
+        --space-15: 7.2rem;
+        --space-16: 8rem;
+        --space-17: 10.4rem;
+        --space-18: 12rem;
+        --space-19: 13rem;
+    }
 }

@@ -1,16 +1,22 @@
-:root {
-    --ff-body: 'Heebo', sans-serif;
-    --ff-heading: 'Oswald', sans-serif;
+@media screen and (min-height: 820px) {
+    :root {
+        --ff-body: 'Heebo', sans-serif;
+        --ff-heading: 'Oswald', sans-serif;
 
-    --fs-xl: clamp(3.5rem, 10vw + 1rem, 10rem);
-    --fs-600: 2rem;
-    --fs-400: 1rem;
+        --fs-xl: clamp(3.5rem, 10vw + 1rem, 10rem);
+        --fs-600: 2rem;
+        --fs-400: 1rem;
+    }
 }
 
-@media (min-width: 40em) {
+@media screen and (max-height: 820px) {
     :root {
-        --fs-600: 3rem;
-        --fs-400: 1.125rem;
+        --ff-body: 'Heebo', sans-serif;
+        --ff-heading: 'Oswald', sans-serif;
+
+        --fs-xl: clamp(3rem, 10vw + 1rem, 5rem);
+        --fs-600: 1.5rem;
+        --fs-400: 0.8rem;
     }
 }
 
