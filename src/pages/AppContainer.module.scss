@@ -1,6 +1,5 @@
 .root {
     display: flex;
-    //background: #AAA;
     width: 100%;
     min-height: 100%;
     background: #161512
@@ -11,7 +10,6 @@
         )
         no-repeat;
     color: #bababa;
-    //background-color: grey;
 }
 
 .menu-side {
@@ -32,6 +30,6 @@
 
 .app {
     margin: var(--spacing-4);
-    box-sizing: border-box;
+    // box-sizing: border-box;
     flex: 1;
 }

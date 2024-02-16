@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import CloseIcon from '@components/Icons/Close/Close'
 import { NextIcon, PreviousIcon } from '@components/Icons'
 import FadeInOutText from '@components/Wrappers/FadeInOutText/FadeInOutText'
+import { useTranslation } from 'react-i18next'
 
 interface ImageGalleryProps {
     images: {
@@ -13,19 +14,21 @@ interface ImageGalleryProps {
         title?: string
         content?: string
     }[]
+    namespace: string
     onImageClick: (index: number | null) => void
 }
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({
     images,
     onImageClick,
+    namespace,
 }) => {
+    const { t, i18n } = useTranslation()
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
         null
     )
 
     const handleImageClick = (index: number | null) => {
-        console.log(index)
         setSelectedImageIndex(index)
         onImageClick(index)
     }
@@ -82,9 +85,11 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                             }}
                         />
                     )}
-                    <p>
-                        <FadeInOutText text={content} />
-                    </p>
+                    <>
+                        <FadeInOutText
+                            text={t(`main:${namespace}.${content}`)}
+                        />
+                    </>
                     {isOpen && selectedImageIndex! < images.length - 1 && (
                         <NextIcon
                             onClick={() => {

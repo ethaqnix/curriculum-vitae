@@ -4,7 +4,7 @@ import styles from './FadeInOutText.module.scss'
 
 interface FadeInOutTextProps {
     children?: React.ReactNode
-    text?: string
+    text?: string | null
 }
 
 type AnimationState = 'appearing' | 'disappearing' | 'appeared' | 'unload'
@@ -44,7 +44,7 @@ const FadeInOutText = ({ children, text }: FadeInOutTextProps) => {
             })}
             onAnimationEnd={handleEndAnimation}
         >
-            {content || null}
+            <p>{content || null}</p>
         </div>
     )
 }

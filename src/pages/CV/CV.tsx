@@ -1,13 +1,16 @@
 import React from 'react'
 import styles from './CV.module.scss'
 import History from './History'
+import ProfilePicture from '@components/ProfilePicture/ProfilePicture'
 
 const CV = () => {
     return (
         <div className={styles.root}>
-            <div className={styles.picture} />
+            <div className={styles.picture}>
+                <ProfilePicture />
+            </div>
             <div className={styles.profile}>
-                <div className={styles.contactInformations}>
+                <div className={styles.contacts}>
                     <h3>contacts :</h3>
                     <p>email: romain.denizot.pro@gmail.com</p>
                     <p>phone: 06 95 94 65 09</p>

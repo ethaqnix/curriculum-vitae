@@ -1,17 +1,14 @@
 .root {
-    --row-heigth: calc(100 / 6 * 1% * 1px);
-    grid-template-columns: 1fr 1fr 1fr;
+    //--row-heigth: calc(100 / 6 * 1% * 1px);
+    grid-template-columns: 1fr 4fr;
     grid-auto-rows: 1fr;
-    padding: var(--space-6);
+    padding: var(--space-4);
     height: 100%;
     display: grid;
     grid-template-areas:
-        'picture history history'
-        'profile history history'
-        'profile history history';
-    * {
-        height: var(--row-heigth);
-    }
+        'picture history'
+        'profile history'
+        'profile history';
 }
 
 .profile {
@@ -25,6 +22,7 @@
 }
 
 .picture {
+    position: relative;
     grid-area: picture;
 }
 
@@ -69,6 +67,42 @@
             'langages'
             'interests'
             'social';
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .profile > *,
+    .picture > * {
+        margin-right: var(--space-3);
+        padding-right: var(--space-2);
+        padding-bottom: var(--space-3);
+        padding-top: var(--space-4);
+        border-right: 0.2em solid var(--secondary-color);
+    }
+
+    .picture::after,
+    .picture::before {
+        position: absolute;
+        content: '';
+        width: 50px;
+        height: calc(50% - var(--space-10));
+        z-index: 10;
+        right: var(--space-3);
+        background-color: var(--background-color);
+    }
+
+    .picture::after {
+        transform-origin: top;
+        transform: skew(20deg);
+        top: var(--space-10);
+        border-right: 0.2em solid var(--secondary-color);
+    }
+
+    .picture::before {
+        transform-origin: bottom;
+        transform: skew(-20deg);
+        bottom: var(--space-10);
+        border-right: 0.2em solid var(--secondary-color);
     }
 }
 

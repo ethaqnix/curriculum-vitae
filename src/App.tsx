@@ -1,9 +1,15 @@
 import AppContainer from '@pages/AppContainer'
 
 import './App.module.scss'
+import './i18n'
+import { Suspense } from 'react'
 
 function App() {
-    return <AppContainer />
+    return (
+        <Suspense fallback={<div>Loading... </div>}>
+            <AppContainer />
+        </Suspense>
+    )
 }
 
 export default App

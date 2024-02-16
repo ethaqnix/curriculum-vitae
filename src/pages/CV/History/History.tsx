@@ -13,6 +13,7 @@ const History = () => {
             <div className={styles.experiences}>
                 <ImageGallery
                     images={experiences}
+                    namespace="experience"
                     onImageClick={(index) => {
                         if (index === null) {
                             setSelectedSkills(defaultSkills)
@@ -26,6 +27,7 @@ const History = () => {
             <div className={styles.formations}>
                 <ImageGallery
                     images={formations}
+                    namespace="formation"
                     onImageClick={(index) => {
                         if (index === null) {
                             setSelectedSkills(defaultSkills)
@@ -57,7 +59,7 @@ const History = () => {
             <div className={styles.software}>
                 <li>
                     {selectedSkills.software.map((title) => (
-                        <ul>{`${title}`}</ul>
+                        <ul key={title}>{`${title}`}</ul>
                     ))}
                 </li>
             </div>

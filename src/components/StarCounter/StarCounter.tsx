@@ -8,14 +8,6 @@ interface StarCounterProps {
 }
 
 const StarCounter = ({ count, range, label }: StarCounterProps) => {
-    // return null
-    useEffect(() => {
-        console.log('mount, ', label)
-
-        return () => {
-            console.log('unmout, ', label)
-        }
-    }, [])
     return (
         <div className={styles['star-ratings']}>
             <div className={styles['empty-ratings']}>
