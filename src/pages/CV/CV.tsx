@@ -2,8 +2,15 @@ import React from 'react'
 import styles from './CV.module.scss'
 import History from './History'
 import ProfilePicture from '@components/ProfilePicture/ProfilePicture'
+import Social from './Social'
+import { useTranslation } from 'react-i18next'
+import Interests from './Interests'
+import Langages from './Langages'
+import Contacts from './Contacts'
 
 const CV = () => {
+    const { t } = useTranslation('common')
+
     return (
         <div className={styles.root}>
             <section className={styles.picture}>
@@ -11,21 +18,21 @@ const CV = () => {
             </section>
             <section className={styles.profile}>
                 <section className={styles.contacts}>
-                    <h3>contacts :</h3>
-                    <p>email: romain.denizot.pro@gmail.com</p>
-                    <p>phone: 06 95 94 65 09</p>
+                    <h3>{t('common:contacts') + ' :'}</h3>
+                    <Contacts />
                 </section>
                 <section className={styles.langages}>
-                    <h3>langues :</h3>
-                    <p>Anglais: Parlé</p>
-                    <p>Français: Natif</p>
+                    <h3>{t('common:languages') + ' :'}</h3>
+                    <Langages />
                 </section>
                 <section className={styles.interests}>
                     <h3>centre d'intéret :</h3>
-                    <p>Echecs</p>
-                    <p>Musique: {'<icon with link>'}</p>
+                    <Interests />
                 </section>
-                <div className={styles.social}>github - linkedin</div>
+                <div className={styles.social}>
+                    <h3>{t('common:socials') + ' :'}</h3>
+                    <Social />
+                </div>
             </section>
             <section className={styles.history}>
                 <History />
