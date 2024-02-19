@@ -1,0 +1,20 @@
+{
+    "contacts": "Contacts",
+    "contact": {
+        "mail": "email",
+        "phoneNumber": "téléphone"
+    },
+    "languages": "Langages",
+    "language": {
+        "french": "français",
+        "english": "english",
+        "spoken": "parlé",
+        "native": "natif"
+    },
+    "interests": "Intérêts",
+    "interest": {
+        "chess": "échecs",
+        "music": "music"
+    },
+    "socials": "Lien utiles"
+}
