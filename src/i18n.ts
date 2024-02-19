@@ -9,8 +9,8 @@ i18n.use(Backend)
     .init({
         fallbackLng: 'fr',
         debug: false,
-        ns: ['main'],
-        defaultNS: 'main',
+        ns: ['main', 'common'],
+        defaultNS: 'common',
         load: 'languageOnly',
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
