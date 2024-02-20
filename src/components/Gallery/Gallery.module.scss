@@ -76,6 +76,8 @@
 }
 
 .description {
+    white-space: pre-line;
+    overflow: scroll;
     position: absolute;
     display: flex;
     flex-direction: column;
