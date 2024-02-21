@@ -1,13 +1,62 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import styles from './History.module.scss'
 import ImageGallery from '@components/Gallery/Gallery'
 import { defaultSkills, experiences } from './experiences'
 import { formations } from './formations'
 import StarCounter from '@components/StarCounter/StarCounter'
 import AnimatedList from '@components/AnimatedList/AnimatedList'
+import CirclePacking from '@components/CirclePacking'
+import skills from './skills.json'
+import { isObject } from '@utils/typeCheckers'
+import { D3Object } from '@components/CirclePacking/CirclePacking'
+
+interface NestedObject {
+    [key: string]: NestedObject | string[]
+}
 
 const History = () => {
     const [selectedSkills, setSelectedSkills] = useState(defaultSkills)
+
+    const formatSkillsData = useCallback(
+        (
+            data: NestedObject = skills,
+            filter: string | undefined = undefined
+        ): D3Object[] => {
+            return Object.keys(data).reduce((acc: D3Object[], key) => {
+                const value = data[key]
+                if (isObject(value)) {
+                    return [
+                        ...acc,
+                        {
+                            name: key,
+                            children: formatSkillsData(
+                                value as NestedObject,
+                                filter
+                            ),
+                        },
+                    ]
+                } else if (
+                    Array.isArray(value) &&
+                    (!filter || value.includes(filter))
+                ) {
+                    return [
+                        ...acc,
+                        {
+                            name: key,
+                        },
+                    ]
+                }
+                return acc
+            }, [])
+        },
+        []
+    )
+
+    const formattedSkills = {
+        name: 'skills',
+        children: formatSkillsData(skills, selectedSkills?.content),
+    }
+
     return (
         <div className={styles['history']}>
             <div className={styles.experiences}>
@@ -57,11 +106,7 @@ const History = () => {
                 />
             </div>
             <div className={styles.software}>
-                <li>
-                    {selectedSkills.software.map((title) => (
-                        <ul key={title}>{`${title}`}</ul>
-                    ))}
-                </li>
+                <CirclePacking data={formattedSkills} />
             </div>
         </div>
     )

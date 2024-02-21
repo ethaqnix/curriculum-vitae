@@ -1,7 +1,7 @@
 export interface HistoryItem {
     src: string
     title: string
-    content: string
+    content?: string | undefined
     skills: Skill[]
     software: string[]
 }
@@ -17,7 +17,17 @@ export const experiences: HistoryItem[] = [
         src: 'https://pbs.twimg.com/profile_images/1113003983860350977/Cay7oMKt_400x400.png',
         title: 'Obvious Technologies',
         content: 'obviousTechnologies',
-        software: ['gitlab', 'équipe internationnale', 'windows'],
+        software: [
+            'gitlab',
+            'équipe internationnale',
+            'windows',
+            'redis',
+            'mongoDB',
+            'swagger',
+            'voip',
+            'adobeXD',
+            'kafka',
+        ],
         skills: [
             {
                 title: 'ReactJS',
@@ -115,7 +125,11 @@ export const experiences: HistoryItem[] = [
     },
 ]
 
-export const defaultSkills: Pick<HistoryItem, 'skills' | 'software'> = {
+export const defaultSkills: Pick<
+    HistoryItem,
+    'skills' | 'software' | 'content'
+> = {
+    content: undefined,
     skills: [
         {
             title: 'ReactJS',

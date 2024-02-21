@@ -1,0 +1,80 @@
+{
+    "projectManagment": {
+        "UI": {
+            "AdobeXD": ["obviousTechnologies"],
+            "figma": ["mistertemp"]
+        },
+        "devOps": {
+            "gitlab": ["obviousTechnologies", "wweeddoo"],
+            "github": ["obviousTechnologies", "mistertemp"]
+        },
+        "communication": {
+            "rocketChat": ["obviousTechnologies"],
+            "slack": ["wweeddoo", "mistertemp"]
+        }
+    },
+    "clientManagement": {
+        "mailing": {
+            "sendingblue": ["wweeddoo"],
+            "mailjet": ["wweeddoo"],
+            "SES": ["mistertemp"]
+        },
+        "client portfolio": {
+            "hubspot": ["wweeddoo"],
+            "salesforce": ["mistertemp"]
+        },
+        "support": {
+            "mail": ["wweeddoo"],
+            "slack": ["mistertemp"]
+        }
+    },
+    "databases": {
+        "mongoDB": ["obviousTechnologies", "mistertemp", "epitech"],
+        "postgresSQL": ["wweeddoo"],
+        "SQLite": ["epitech"],
+        "mariaDB": ["epitech"],
+        "redis": ["obviousTechnologies"],
+        "S3": ["mistertemp"]
+    },
+    "frontend": {
+        "dataVisualisation": {
+            "react-admin": ["obviousTechnologies"],
+            "d3js": ["epitech"],
+            "react-table": ["mistertemp"]
+        },
+        "framework": {
+            "material-UI": ["epitech", "obviousTechnologies", "wweeddoo"],
+            "semantic-ui": ["epitech", "wweeddoo"],
+            "bootstrap": ["epitech"],
+            "tanstack": ["mistertemp"]
+        }
+    },
+    "backend": {
+        "dataCommunication": {
+            "websocket": ["obviousTechnologies"],
+            "REST-API": [
+                "epitech",
+                "obviousTechnologies",
+                "wweeddoo",
+                "mistertemp"
+            ],
+            "meteor": ["epitech"],
+            "kafka": ["obviousTechnologies"]
+        },
+        "AWS": {
+            "serverless": ["mistertemp"],
+            "lambda": ["mistertemp"],
+            "stepFunction": ["mistertemp"]
+        },
+        "architecture": {
+            "decentralizedComputing": ["obviousTechnologies"],
+            "REST": [
+                "wweeddoo",
+                "obviousTechnologies",
+                "mistertemp",
+                "epitech"
+            ],
+            "webService": ["mistertemp"]
+        }
+    }
+}
