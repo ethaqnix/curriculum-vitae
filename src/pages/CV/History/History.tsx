@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import styles from './History.module.scss'
 import ImageGallery from '@components/Gallery/Gallery'
 import { defaultSkills, experiences } from './experiences'
@@ -25,16 +25,18 @@ const History = () => {
             return Object.keys(data).reduce((acc: D3Object[], key) => {
                 const value = data[key]
                 if (isObject(value)) {
-                    return [
-                        ...acc,
-                        {
-                            name: key,
-                            children: formatSkillsData(
-                                value as NestedObject,
-                                filter
-                            ),
-                        },
-                    ]
+                    const returnValue = {
+                        name: key,
+                        children: formatSkillsData(
+                            value as NestedObject,
+                            filter
+                        ),
+                    }
+
+                    if (returnValue.children.length) {
+                        return [...acc, returnValue]
+                    }
+                    return acc
                 } else if (
                     Array.isArray(value) &&
                     (!filter || value.includes(filter))
@@ -52,10 +54,13 @@ const History = () => {
         []
     )
 
-    const formattedSkills = {
-        name: 'skills',
-        children: formatSkillsData(skills, selectedSkills?.content),
-    }
+    const formattedSkills = useMemo(
+        () => ({
+            name: 'skills',
+            children: formatSkillsData(skills, selectedSkills?.content),
+        }),
+        [selectedSkills?.content]
+    )
 
     return (
         <div className={styles['history']}>
@@ -68,8 +73,8 @@ const History = () => {
                             setSelectedSkills(defaultSkills)
                             return
                         }
-                        const { skills, software } = experiences[index]
-                        setSelectedSkills({ skills, software })
+                        const { skills, software, content } = experiences[index]
+                        setSelectedSkills({ skills, software, content })
                     }}
                 />
             </div>
@@ -106,7 +111,10 @@ const History = () => {
                 />
             </div>
             <div className={styles.software}>
-                <CirclePacking data={formattedSkills} />
+                <CirclePacking
+                    data={formattedSkills}
+                    skillId={selectedSkills?.content}
+                />
             </div>
         </div>
     )
