@@ -25,7 +25,7 @@
         },
         "support": {
             "mail": ["wweeddoo"],
-            "slack": ["mistertemp"]
+            "directChat": ["mistertemp"]
         }
     },
     "databases": {

@@ -1,1 +1,1 @@
-export { default } from './CirclePacking'
+export { default } from './CirclePacking.class'

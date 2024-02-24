@@ -19,7 +19,7 @@ const Interests = (props: InterestsProps) => {
             'https://www.youtube.com/watch?v=-00L3P74_mg',
         'Dooz Kawa - Les oies sauvages':
             'https://www.youtube.com/watch?v=hdN_DMyq4r8',
-        Bonus: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        Bonus: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&autoplay=1',
     }
 
     return (

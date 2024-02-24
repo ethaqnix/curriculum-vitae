@@ -25,11 +25,16 @@ const History = () => {
             return Object.keys(data).reduce((acc: D3Object[], key) => {
                 const value = data[key]
                 if (isObject(value)) {
+                    const children = formatSkillsData(
+                        value as NestedObject,
+                        filter
+                    )
                     const returnValue = {
                         name: key,
-                        children: formatSkillsData(
-                            value as NestedObject,
-                            filter
+                        children,
+                        size: children.reduce(
+                            (sum, c) => sum + (c.size || 0),
+                            0
                         ),
                     }
 
@@ -37,14 +42,12 @@ const History = () => {
                         return [...acc, returnValue]
                     }
                     return acc
-                } else if (
-                    Array.isArray(value) &&
-                    (!filter || value.includes(filter))
-                ) {
+                } else if (Array.isArray(value)) {
                     return [
                         ...acc,
                         {
                             name: key,
+                            size: !filter || value.includes(filter) ? 1 : 0,
                         },
                     ]
                 }
@@ -58,6 +61,7 @@ const History = () => {
         () => ({
             name: 'skills',
             children: formatSkillsData(skills, selectedSkills?.content),
+            size: 1,
         }),
         [selectedSkills?.content]
     )
