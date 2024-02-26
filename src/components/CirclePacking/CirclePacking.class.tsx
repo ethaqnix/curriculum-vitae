@@ -1,6 +1,6 @@
 import React, { Component, LegacyRef } from 'react'
 import styles from './CirclePacking.module.scss'
-
+import { Text } from '@visx/text'
 import * as d3 from 'd3'
 
 export interface D3Object {
@@ -27,7 +27,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
     color = d3
         .scaleLinear()
         .domain([0, 5])
-        .range(['hsl(37, 10%, 8%)', 'hsl(37, 12%, 80%)'])
+        .range(['hsl(37, 12%, 80%)', 'hsl(37, 10%, 8%)'])
         .interpolate(d3.interpolateHcl)
     nodes: any
     node: any
@@ -47,11 +47,11 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
 
     componentDidMount() {}
 
-    componentDidUpdate(prevProps: Readonly<CirclePackingProps>): void {
+    /*componentDidUpdate(prevProps: Readonly<CirclePackingProps>): void {
         if (prevProps.skillId !== this.props.skillId) {
             this.updateChart(this.props.data)
         }
-    }
+    }*/
 
     initGraph(element: HTMLElement) {
         if (!element) return
@@ -94,7 +94,11 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
 
         this.focus = this.config.root
         this.nodes = this.pack(this.config.root).descendants()
-
+        this.rootView = [
+            this.config.root.x,
+            this.config.root.y,
+            this.config.root.r * 2,
+        ]
         this.circle = this.svg
             .selectAll('circle')
             .data(this.nodes, function (d, i) {
@@ -120,17 +124,39 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
         //.style('padding', (d) => (d.data.size ? '4px' : '0px'))
 
         this.text = this.svg
-            .selectAll('text')
+            .selectAll('foreignObject')
             .data(this.nodes, function (d, i) {
                 return d.data.name
             })
             .enter()
-            .append('text')
+            .append('foreignObject')
+
         this.text
+            .attr('width', '100')
+            .attr('height', '100')
+            .style('fill-opacity', (d) => {
+                return d.parent === this.config.root && d.data.size ? 1 : 0
+            })
+            .style('display', (d) => {
+                return d.parent === this.config.root && d.data.size
+                    ? 'inline'
+                    : 'none'
+            })
+            .append('xhtml:div')
+
+            //.style('transform', 'translate(-50%, -50%)')
+            .style('color', '#000')
+            .style('width', '100%')
+            .style('height', '100%')
+            .style('font-size', `${20}px`)
+
+            .html((d) => d.data.name)
+
+        /* this.text
             .style('text-anchor', 'middle')
             .style('pointer-events', 'none')
             .style('font-weight', (d) => {
-                return d.data.children ? '900' : undefined
+                return d.data.children ? '700' : undefined
             })
             .style('fill-opacity', (d) => {
                 return d.parent === this.config.root && d.data.size ? 1 : 0
@@ -141,20 +167,15 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
                     : 'none'
             })
             .text(function (d) {
-                return d.data.name
-            })
+                return 'ceci est un\ntest'
+            })*/
 
-        this.node = this.svg.selectAll('circle,text')
+        this.node = this.svg.selectAll('circle,foreignObject')
 
-        this.rootView = [
-            this.config.root.x,
-            this.config.root.y,
-            this.config.root.r * 2,
-        ]
         this.zoomTo(this.rootView)
     }
 
-    updateChart(dataSet: any) {
+    /*updateChart(dataSet: any) {
         this.config.root = d3
             .hierarchy(dataSet)
             .sum(function (d) {
@@ -226,7 +247,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
                     ')'
                 )
             })
-    }
+    }*/
 
     zoom(d: any) {
         const focus = d
@@ -247,7 +268,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
             })
 
         this.transition
-            .selectAll('text')
+            .selectAll('foreignObject')
             .filter(function (d) {
                 return d.parent === focus || this.style.display === 'inline'
             })
@@ -266,12 +287,23 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
         const k = this.state.height / v[2]
         this.view = v
 
-        this.node.attr('transform', function (d) {
+        this.circle.attr('transform', function (d) {
             return (
                 'translate(' + (d.x - v[0]) * k + ',' + (d.y - v[1]) * k + ')'
             )
         })
 
+        this.text.attr('transform', function (d) {
+            console.log(d, d.r)
+
+            return (
+                'translate(' +
+                (d.x - v[0] - d.r / 2) * k +
+                ',' +
+                (d.y - v[1] - d.r / 2) * k +
+                ')'
+            )
+        })
         this.circle.attr('r', function (d) {
             return d.data.size ? d.r * k : 0
         })
