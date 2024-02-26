@@ -27,10 +27,11 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
     color = d3
         .scaleLinear()
         .domain([0, 5])
-        .range(['hsl(152,80%,80%)', 'hsl(228,30%,40%)'])
+        .range(['hsl(37, 10%, 8%)', 'hsl(37, 12%, 80%)'])
         .interpolate(d3.interpolateHcl)
     nodes: any
     node: any
+    rootView: any
     view: any
     circle: any
     text: any
@@ -48,7 +49,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
 
     componentDidUpdate(prevProps: Readonly<CirclePackingProps>): void {
         if (prevProps.skillId !== this.props.skillId) {
-            this.updateChart()
+            this.updateChart(this.props.data)
         }
     }
 
@@ -78,12 +79,12 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
         this.pack = d3.pack().size([diameter, diameter])
         this.config.rootSource = this.props.data // for animation
         this.config.root = this.config.rootSource
-        this.buildChart()
+        this.buildChart(this.props.data)
     }
 
-    buildChart() {
+    buildChart(dataSet: any) {
         this.config.root = d3
-            .hierarchy(this.config.root)
+            .hierarchy(dataSet)
             .sum(function (d) {
                 return d.size
             })
@@ -97,10 +98,14 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
         this.circle = this.svg
             .selectAll('circle')
             .data(this.nodes, function (d, i) {
-                return d.data.size ? d.data.name : ''
+                return d.data.name
             })
             .enter()
             .append('circle')
+            .on('click', (event, d) => {
+                if (focus !== d) this.zoom(d), event.stopPropagation()
+            })
+        this.circle
             .attr('class', function (d, i) {
                 return d.parent
                     ? d.children
@@ -112,10 +117,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
                 if (!d.depth) return 'none'
                 return d.children ? this.color(d.depth) : 'white'
             })
-            //.style('padding', (d) => (d.data.size ? '4px' : '0px'))
-            .on('click', (event, d) => {
-                if (focus !== d) this.zoom(d), event.stopPropagation()
-            })
+        //.style('padding', (d) => (d.data.size ? '4px' : '0px'))
 
         this.text = this.svg
             .selectAll('text')
@@ -124,8 +126,12 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
             })
             .enter()
             .append('text')
+        this.text
             .style('text-anchor', 'middle')
             .style('pointer-events', 'none')
+            .style('font-weight', (d) => {
+                return d.data.children ? '900' : undefined
+            })
             .style('fill-opacity', (d) => {
                 return d.parent === this.config.root && d.data.size ? 1 : 0
             })
@@ -140,22 +146,17 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
 
         this.node = this.svg.selectAll('circle,text')
 
-        this.zoomTo([
+        this.rootView = [
             this.config.root.x,
             this.config.root.y,
             this.config.root.r * 2,
-        ])
+        ]
+        this.zoomTo(this.rootView)
     }
 
-    updateChart() {
-        this.zoomTo([
-            this.config.root.x,
-            this.config.root.y,
-            this.config.root.r * 2,
-        ])
-        this.config.root = this.config.rootSource
+    updateChart(dataSet: any) {
         this.config.root = d3
-            .hierarchy(this.props.data)
+            .hierarchy(dataSet)
             .sum(function (d) {
                 return d.size
             })
@@ -163,18 +164,26 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
                 return b.value - a.value
             })
 
+        this.zoomTo(this.rootView)
+
         this.focus = this.config.root
         this.nodes = this.pack(this.config.root).descendants()
 
-        this.node = d3.selectAll('.node').data(this.nodes, function (d, i) {
-            return d.data.name
-        })
+        this.text = this.svg
+            .selectAll('text')
+            .data(this.nodes, function (d, i) {
+                return d.data.name
+            })
 
-        this.text = d3.selectAll('.label').data(this.nodes, function (d, i) {
-            return d.data.name
-        })
+        this.circle = this.svg
+            .selectAll('circle')
+            .data(this.nodes, function (d, i) {
+                return d.data.name
+            })
 
-        var k = this.state.height / this.view[2]
+        this.node = this.svg.selectAll('circle,text')
+
+        const k = this.state.height / this.view[2]
 
         this.node
             .transition()
@@ -192,12 +201,23 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
                 return d.r * k
             })
 
-        /* this.text
-            .transition()
-            .duration(1250)
-            .attr('transform', (d) => {
-                console.log(d.x)
+        const text = this.text.transition().duration(1250)
 
+        this.text = text
+            .style('text-anchor', 'middle')
+            .style('pointer-events', 'none')
+            .style('fill-opacity', (d) => {
+                return d.parent === this.config.root && d.data.size ? 1 : 0
+            })
+            .style('display', (d) => {
+                return d.parent === this.config.root && d.data.size
+                    ? 'inline'
+                    : 'none'
+            })
+            .text(function (d) {
+                return d.data.name
+            })
+            .attr('transform', (d) => {
                 return (
                     'translate(' +
                     (d.x - this.view[0]) * k +
@@ -205,7 +225,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
                     (d.y - this.view[1]) * k +
                     ')'
                 )
-            })*/
+            })
     }
 
     zoom(d: any) {
@@ -220,12 +240,13 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
                     focus.y,
                     focus.r * 2,
                 ])
+
                 return (t) => {
                     this.zoomTo(i(t))
                 }
             })
 
-        this.transition = this.transition
+        this.transition
             .selectAll('text')
             .filter(function (d) {
                 return d.parent === focus || this.style.display === 'inline'
@@ -303,6 +324,7 @@ const style = `
     .node--root,
     .node--leaf {
         pointer-events: none;
-    }`
+    }
+`
 
 export default CirclePacking
