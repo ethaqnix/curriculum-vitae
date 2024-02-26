@@ -27,7 +27,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
     color = d3
         .scaleLinear()
         .domain([0, 5])
-        .range(['hsl(37, 10%, 8%)', 'hsl(37, 12%, 80%)'])
+        .range(['hsl(37, 10%, 20%)', 'hsl(37, 12%, 80%)'])
         .interpolate(d3.interpolateHcl)
     nodes: any
     node: any
@@ -114,7 +114,6 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
                     : 'node--root ' + d.data.name + ' i-' + i
             })
             .style('fill', (d) => {
-                if (!d.depth) return 'none'
                 return d.children ? this.color(d.depth) : 'white'
             })
         //.style('padding', (d) => (d.data.size ? '4px' : '0px'))
@@ -130,7 +129,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
             .style('text-anchor', 'middle')
             .style('pointer-events', 'none')
             .style('font-weight', (d) => {
-                return d.data.children ? '900' : undefined
+                return d.data.children ? '700' : undefined
             })
             .style('fill-opacity', (d) => {
                 return d.parent === this.config.root && d.data.size ? 1 : 0
