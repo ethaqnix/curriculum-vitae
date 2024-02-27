@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './CV.module.scss'
-import History from './History'
 import ProfilePicture from '@components/ProfilePicture/ProfilePicture'
 import Social from './Social'
 import { useTranslation } from 'react-i18next'
 import Interests from './Interests'
 import Langages from './Langages'
 import Contacts from './Contacts'
+import MainView from './MainView'
 
 const CV = () => {
     const { t } = useTranslation('common')
@@ -34,8 +34,8 @@ const CV = () => {
                     <Social />
                 </div>
             </section>
-            <section className={styles.history}>
-                <History />
+            <section className={styles.mainView}>
+                <MainView />
             </section>
         </div>
     )

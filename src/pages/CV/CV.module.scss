@@ -7,9 +7,9 @@
     max-height: 100%;
     display: grid;
     grid-template-areas:
-        'picture history'
-        'profile history'
-        'profile history';
+        'picture mainView'
+        'profile mainView'
+        'profile mainView';
 }
 
 .profile {
@@ -45,8 +45,8 @@
     grid-area: contacts;
 }
 
-.history {
-    grid-area: history;
+.mainView {
+    grid-area: mainView;
 }
 
 @media screen and (max-width: 1050px) {

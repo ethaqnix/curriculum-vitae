@@ -1,9 +1,10 @@
 import Menu from '@components/Menu'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, createContext } from 'react'
 import styles from './AppContainer.module.scss'
 import classNames from 'classnames'
 import CV from './CV'
 import useScreenSize from '@hooks/useScreenSize'
+import { ViewProvider } from '@contexts/ViewContext'
 
 const AppContainer = () => {
     const { width } = useScreenSize()
@@ -29,7 +30,9 @@ const AppContainer = () => {
                         for now.
                     </div>
                 ) : (
-                    <CV />
+                    <ViewProvider>
+                        <CV />
+                    </ViewProvider>
                 )}
             </div>
         </div>
