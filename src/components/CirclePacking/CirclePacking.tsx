@@ -5,11 +5,12 @@ import * as d3 from 'd3'
 export interface D3Object {
     name: string
     children?: D3Object[]
+    size?: number
 }
 
 interface CirclePackingProps {
     data: D3Object
-    skillId: string
+    skillId?: string
 }
 
 const CirclePacking = ({ data, skillId }: CirclePackingProps) => {
