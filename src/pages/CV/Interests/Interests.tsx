@@ -1,25 +1,29 @@
 import React from 'react'
 import styles from './Interests.module.scss'
 import { useTranslation } from 'react-i18next'
+import { useView } from '@contexts/ViewContext'
+import { changePage } from '@contexts/ViewContext/action'
 
 interface InterestsProps {}
 
 const Interests = (props: InterestsProps) => {
     const { t } = useTranslation()
+    const [{ page }, dispatch] = useView()
 
     let musicUrls = {
         'Gaël Faye (ft. Flavia Coelho) - Balade brésilienne':
-            'https://www.youtube.com/watch?v=KosLQDGYQ_c',
-        'VALD  (ft. AD) - NQNT': 'https://www.youtube.com/watch?v=WPY3xpilPD4',
+            'https://www.youtube.com/embed/KosLQDGYQ_c?si=P9mp9986Yr7qL0Vq',
+        'VALD  (ft. AD) - NQNT':
+            'https://www.youtube.com/embed/WPY3xpilPD4?si=Rv49s1MXkLmklDE4',
         'Jacques Brel - Il nous faut regarder':
-            'https://www.youtube.com/watch?v=bBaF6JYx7TM',
+            'https://www.youtube.com/embed/bBaF6JYx7TM?si=ZW8eC5SkXeYzkyAm',
         'Imagine Dragons - Bones':
-            'https://www.youtube.com/watch?v=TO-_3tck2tg',
+            'https://www.youtube.com/embed/TO-_3tck2tg?si=FWM7cthAuYhB38J2',
         'DUB INC - Partout dans ce monde':
-            'https://www.youtube.com/watch?v=-00L3P74_mg',
+            'https://www.youtube.com/embed/-00L3P74_mg?si=LiaScRk3SU7MoD3c',
         'Dooz Kawa - Les oies sauvages':
-            'https://www.youtube.com/watch?v=hdN_DMyq4r8',
-        Bonus: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&autoplay=1',
+            'https://www.youtube.com/embed/hdN_DMyq4r8?si=BzpnqNMIWse5OHmM',
+        Bonus: 'https://www.youtube.com/embed/dQw4w9WgXcQ?si=77cfamn3NDCP8cs5&showinfo=0&autoplay=1&amp',
     }
 
     return (
@@ -33,7 +37,19 @@ const Interests = (props: InterestsProps) => {
                 </p>
                 {Object.entries(musicUrls).map(([name, url]) => (
                     <span title={name}>
-                        <a href={url} target="_blank" rel="noopener noreferrer">
+                        <a
+                            onClick={() =>
+                                dispatch(
+                                    changePage({
+                                        page: 'music',
+                                        additionnalData: {
+                                            musicUrl: url,
+                                            title: name,
+                                        },
+                                    })
+                                )
+                            }
+                        >
                             <img
                                 src="img/musical-note.png"
                                 className={styles.icon}

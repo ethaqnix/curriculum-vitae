@@ -1,11 +1,11 @@
-import { Page } from './context'
+import { ViewState } from './context'
 
 export interface IChangePage {
     type: 'CHANGE_PAGE'
-    payload: Page
+    payload: ViewState
 }
 
-export const changePage = (newPage: Page): IChangePage => ({
+export const changePage = (newPage: ViewState): IChangePage => ({
     type: 'CHANGE_PAGE',
     payload: newPage,
 })

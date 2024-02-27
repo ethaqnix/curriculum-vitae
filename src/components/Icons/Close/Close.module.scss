@@ -1,10 +1,10 @@
 .close {
     position: absolute;
     z-index: 3;
-    right: 32px;
-    top: 32px;
-    width: 32px;
-    height: 32px;
+    right: var(--space-4);
+    top: var(--space-4);
+    width: var(--space-8);
+    height: var(--space-8);
     opacity: 0.6;
 }
 .close:hover {
@@ -13,10 +13,10 @@
 .close:before,
 .close:after {
     position: absolute;
-    left: 15px;
+    left: var(--space-6);
     content: ' ';
-    height: 33px;
-    width: 2px;
+    height: var(--space-8);
+    width: var(--space-2);
     background-color: #333;
 }
 .close:before {

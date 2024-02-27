@@ -12,7 +12,7 @@ const ViewReducer = (
     switch (action.type) {
         case 'CHANGE_PAGE':
             return {
-                page: action.payload,
+                ...action.payload,
             }
         default:
             return state

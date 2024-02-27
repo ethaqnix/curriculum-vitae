@@ -91,12 +91,6 @@
     background-color: var(--background-color);
     transition: all 0.5s;
 
-    h2 {
-        padding-left: var(--space-4);
-
-        font-size: clamp(1.5rem, 2vw + 1rem, 5rem);
-    }
-
     p {
         padding-left: 100px;
         padding-right: 100px;
