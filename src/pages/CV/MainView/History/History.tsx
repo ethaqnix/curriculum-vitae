@@ -8,7 +8,7 @@ import AnimatedList from '@components/AnimatedList/AnimatedList'
 import CirclePacking from '@components/CirclePacking'
 import skills from './skills.json'
 import { isObject } from '@utils/typeCheckers'
-import { D3Object } from '@components/CirclePacking/CirclePacking'
+import { D3Object } from '@components/CirclePacking/CirclePacking.class'
 
 interface NestedObject {
     [key: string]: NestedObject | string[]
