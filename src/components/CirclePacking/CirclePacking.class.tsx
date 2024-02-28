@@ -1,7 +1,9 @@
-import React, { Component, LegacyRef } from 'react'
+import * as React from 'react'
 import styles from './CirclePacking.module.scss'
 
 import * as d3 from 'd3'
+
+/* great use of typescript on this file */
 
 export interface D3Object {
     name: string
@@ -11,14 +13,17 @@ export interface D3Object {
 
 interface CirclePackingProps {
     data: D3Object
-    skillId: string
+    skillId?: string
 }
 
 interface CirclePackingState {
     height?: number
 }
 
-class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
+class CirclePacking extends React.Component<
+    CirclePackingProps,
+    CirclePackingState
+> {
     svg: any
     graphRef: SVGSVGElement | undefined
     containerRef: HTMLDivElement | undefined
@@ -27,8 +32,8 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
     color = d3
         .scaleLinear()
         .domain([0, 5])
-        .range(['hsl(37, 10%, 20%)', 'hsl(37, 12%, 80%)'])
-        .interpolate(d3.interpolateHcl)
+        .range(['hsl(37, 10%, 20%)', 'hsl(37, 12%, 80%)'] as any)
+        .interpolate(d3.interpolateHcl as any)
     nodes: any
     node: any
     rootView: any
@@ -61,10 +66,8 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
     }
 
     initChartData() {
-        if (!this.state.height) return
+        if (!this.state.height || !this.graphRef) return
         const svg = d3.select(this.graphRef)
-
-        //d3.selectAll('svg > *').remove()
 
         const diameter = this.state.height
         this.svg = svg
@@ -85,10 +88,10 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
     buildChart(dataSet: any) {
         this.config.root = d3
             .hierarchy(dataSet)
-            .sum(function (d) {
+            .sum(function (d: any) {
                 return d.size
             })
-            .sort(function (a: { value: number }, b: { value: number }) {
+            .sort(function (a: any, b: any) {
                 return b.value - a.value
             })
 
@@ -97,30 +100,39 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
 
         this.circle = this.svg
             .selectAll('circle')
-            .data(this.nodes, function (d, i) {
+            .data(this.nodes, function (d: { data: { name: any } }) {
                 return d.data.name
             })
             .enter()
             .append('circle')
-            .on('click', (event, d) => {
-                if (focus !== d) this.zoom(d), event.stopPropagation()
-            })
+            .on(
+                'click',
+                (event: { stopPropagation: () => any }, d: () => void) => {
+                    if (focus !== d) this.zoom(d), event.stopPropagation()
+                }
+            )
         this.circle
-            .attr('class', function (d, i) {
-                return d.parent
-                    ? d.children
-                        ? 'node ' + d.data.name + ' i-' + i
-                        : 'node--leaf node ' + d.data.name + ' i-' + i
-                    : 'node--root ' + d.data.name + ' i-' + i
-            })
-            .style('fill', (d) => {
+            .attr(
+                'class',
+                function (
+                    d: { parent: any; children: any; data: { name: string } },
+                    i: string
+                ) {
+                    return d.parent
+                        ? d.children
+                            ? 'node ' + d.data.name + ' i-' + i
+                            : 'node--leaf node ' + d.data.name + ' i-' + i
+                        : 'node--root ' + d.data.name + ' i-' + i
+                }
+            )
+            .style('fill', (d: any) => {
                 return d.children ? this.color(d.depth) : 'white'
             })
-        //.style('padding', (d) => (d.data.size ? '4px' : '0px'))
+        //.style('padding', (d: any) => (d.data.size ? '4px' : '0px'))
 
         this.text = this.svg
             .selectAll('text')
-            .data(this.nodes, function (d, i) {
+            .data(this.nodes, function (d: any) {
                 return d.data.name
             })
             .enter()
@@ -128,18 +140,18 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
         this.text
             .style('text-anchor', 'middle')
             .style('pointer-events', 'none')
-            .style('font-weight', (d) => {
+            .style('font-weight', (d: any) => {
                 return d.data.children ? '700' : undefined
             })
-            .style('fill-opacity', (d) => {
+            .style('fill-opacity', (d: any) => {
                 return d.parent === this.config.root && d.data.size ? 1 : 0
             })
-            .style('display', (d) => {
+            .style('display', (d: any) => {
                 return d.parent === this.config.root && d.data.size
                     ? 'inline'
                     : 'none'
             })
-            .text(function (d) {
+            .text(function (d: any) {
                 return d.data.name
             })
 
@@ -156,10 +168,10 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
     updateChart(dataSet: any) {
         this.config.root = d3
             .hierarchy(dataSet)
-            .sum(function (d) {
+            .sum(function (d: any) {
                 return d.size
             })
-            .sort(function (a, b) {
+            .sort(function (a: any, b: any) {
                 return b.value - a.value
             })
 
@@ -170,13 +182,13 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
 
         this.text = this.svg
             .selectAll('text')
-            .data(this.nodes, function (d, i) {
+            .data(this.nodes, function (d: { data: { name: any } }, i: any) {
                 return d.data.name
             })
 
         this.circle = this.svg
             .selectAll('circle')
-            .data(this.nodes, function (d, i) {
+            .data(this.nodes, function (d: { data: { name: any } }, i: any) {
                 return d.data.name
             })
 
@@ -187,7 +199,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
         this.node
             .transition()
             .duration(1250)
-            .attr('transform', (d) => {
+            .attr('transform', (d: any) => {
                 return (
                     'translate(' +
                     (d.x - this.view[0]) * k +
@@ -196,7 +208,7 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
                     ')'
                 )
             })
-            .attr('r', function (d) {
+            .attr('r', function (d: any) {
                 return d.r * k
             })
 
@@ -205,18 +217,18 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
         this.text = text
             .style('text-anchor', 'middle')
             .style('pointer-events', 'none')
-            .style('fill-opacity', (d) => {
+            .style('fill-opacity', (d: any) => {
                 return d.parent === this.config.root && d.data.size ? 1 : 0
             })
-            .style('display', (d) => {
+            .style('display', (d: any) => {
                 return d.parent === this.config.root && d.data.size
                     ? 'inline'
                     : 'none'
             })
-            .text(function (d) {
+            .text(function (d: any) {
                 return d.data.name
             })
-            .attr('transform', (d) => {
+            .attr('transform', (d: any) => {
                 return (
                     'translate(' +
                     (d.x - this.view[0]) * k +
@@ -233,30 +245,33 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
         this.transition = d3
             .transition()
             .duration(750)
-            .tween('zoom', (d) => {
+            .tween('zoom', () => {
                 const i = d3.interpolateZoom(this.view, [
                     focus.x,
                     focus.y,
                     focus.r * 2,
                 ])
 
-                return (t) => {
+                return (t: any) => {
                     this.zoomTo(i(t))
                 }
             })
 
         this.transition
             .selectAll('text')
-            .filter(function (d) {
+            .filter(function (d: any) {
+                // @ts-ignore
                 return d.parent === focus || this.style.display === 'inline'
             })
-            .style('fill-opacity', function (d) {
+            .style('fill-opacity', function (d: any) {
                 return d.parent === focus && d.data.size ? 1 : 0
             })
-            .on('start', function (d) {
+            .on('start', function (d: any) {
+                // @ts-ignore
                 if (d.parent === focus) this.style.display = 'inline'
             })
-            .on('end', function (d) {
+            .on('end', function (d: any) {
+                // @ts-ignore
                 if (d.parent !== focus) this.style.display = 'none'
             })
     }
@@ -265,13 +280,13 @@ class CirclePacking extends Component<CirclePackingProps, CirclePackingState> {
         const k = this.state.height / v[2]
         this.view = v
 
-        this.node.attr('transform', function (d) {
+        this.node.attr('transform', function (d: any) {
             return (
                 'translate(' + (d.x - v[0]) * k + ',' + (d.y - v[1]) * k + ')'
             )
         })
 
-        this.circle.attr('r', function (d) {
+        this.circle.attr('r', function (d: any) {
             return d.data.size ? d.r * k : 0
         })
     }
