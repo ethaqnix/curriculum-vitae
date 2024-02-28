@@ -33,7 +33,7 @@ jobs:
                   version: 6.32.9
             - uses: actions/setup-node@v3
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: '20'
                   cache: 'pnpm'
             - run: pnpm install
             - name: Build
