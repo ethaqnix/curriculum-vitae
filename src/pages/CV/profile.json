@@ -1,0 +1,16 @@
+{
+    "firstname": "Romain",
+    "lastname": "Denizot",
+    "email": "denizot.romain.pro@gmail.com",
+    "phoneNumber": "06 88 19 55 04",
+    "languages": {
+        "french": "native",
+        "english": "spoken"
+    },
+    "interests": ["chess", "music"],
+    "socials": {
+        "linkedin": "https://www.linkedin.com/in/romain-denizot",
+        "github": "https://github.com/ethaqnix/",
+        "vitrine": "https://ethaqnix.github.io/curriculum-vitae/"
+    }
+}

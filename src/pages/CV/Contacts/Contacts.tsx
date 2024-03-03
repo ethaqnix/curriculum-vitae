@@ -1,19 +1,19 @@
 import React from 'react'
 import styles from './Contacts.module.scss'
 import { useTranslation } from 'react-i18next'
+import profile from '../profile.json'
 
-interface ContactsProps {}
-
-const Contacts = (props: ContactsProps) => {
+const Contacts = () => {
     const { t } = useTranslation('common')
     return (
         <div className={styles.root}>
             <p>
                 <b>{`${t('common:contact.mail')} : `}</b>
-                romain.denizot.pro@gmail.com
+                {profile.email}
             </p>
             <p>
-                <b>{`${t('common:contact.phoneNumber')} : `}</b>06 95 94 65 09
+                <b>{`${t('common:contact.phoneNumber')} : `}</b>
+                {profile.phoneNumber}
             </p>
         </div>
     )

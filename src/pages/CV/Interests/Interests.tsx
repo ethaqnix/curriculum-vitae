@@ -8,7 +8,7 @@ interface InterestsProps {}
 
 const Interests = (props: InterestsProps) => {
     const { t } = useTranslation()
-    const [{ page }, dispatch] = useView()
+    const [, dispatch] = useView()
 
     let musicUrls = {
         'Gaël Faye (ft. Flavia Coelho) - Balade brésilienne':

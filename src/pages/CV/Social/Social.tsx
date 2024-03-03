@@ -1,18 +1,19 @@
 import React from 'react'
 import styles from './Social.module.scss'
+import profile from '../profile.json'
 
 const Social = () => {
     return (
         <div className={styles.root}>
             <a
-                href="https://github.com/ethaqnix/"
+                href={profile.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <div className={styles.github} />
             </a>
             <a
-                href="https://www.linkedin.com/in/romain-denizot"
+                href={profile.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
             >

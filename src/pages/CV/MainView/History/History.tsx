@@ -115,10 +115,10 @@ const History = () => {
                 />
             </div>
             <div className={styles.software}>
-                <CirclePacking
+                {/*<CirclePacking
                     data={formattedSkills}
                     skillId={selectedSkills?.content}
-                />
+                    />*/}
             </div>
         </div>
     )
