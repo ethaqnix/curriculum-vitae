@@ -11,7 +11,7 @@ interface ScrollableTextProps {
 const ScrollableText = ({ children, className = '' }: ScrollableTextProps) => {
     const ref = useRef<HTMLDivElement>(null)
     const [onTop, setOnTop] = useState(true)
-    const [onBottom, setOnBottom] = useState<>(false)
+    const [onBottom, setOnBottom] = useState(false)
 
     const onScroll = (e: React.UIEvent<HTMLDivElement>) => {
         if (e.currentTarget.scrollTop === 0) setOnTop(true)
