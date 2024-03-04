@@ -5,6 +5,7 @@ import CloseIcon from '@components/Icons/Close/Close'
 import { NextIcon, PreviousIcon } from '@components/Icons'
 import FadeInOutText from '@components/Wrappers/FadeInOutText/FadeInOutText'
 import { useTranslation } from 'react-i18next'
+import ScrollableText from '@components/ScrollableText'
 
 interface ImageGalleryProps {
     images: {
@@ -60,24 +61,18 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                     <img src={src} alt={`image-${index}`}></img>
                 </div>
             ))}
-            <div
-                className={classNames(
-                    styles['description'],
-                    isOpen && styles['description-open']
-                )}
-            >
-                <CloseIcon
-                    onClick={() => {
-                        handleImageClick(null)
-                    }}
-                />
-                <FadeInOutText text={title}>
-                    <div className={styles['description-title']}>
-                        <img src={src} alt={src} />
-                        <h2>{title}</h2>
-                    </div>
-                </FadeInOutText>
-                <div className={styles['description-content']}>
+            {isOpen && (
+                <div
+                    className={classNames(
+                        styles['description'],
+                        isOpen && styles['description-open']
+                    )}
+                >
+                    <CloseIcon
+                        onClick={() => {
+                            handleImageClick(null)
+                        }}
+                    />
                     {!!selectedImageIndex && (
                         <PreviousIcon
                             onClick={() => {
@@ -85,11 +80,6 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                             }}
                         />
                     )}
-                    <>
-                        <FadeInOutText
-                            text={t(`main:${namespace}.${content}`)}
-                        />
-                    </>
                     {isOpen && selectedImageIndex! < images.length - 1 && (
                         <NextIcon
                             onClick={() => {
@@ -98,8 +88,24 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                             }}
                         />
                     )}
+                    <FadeInOutText text={title}>
+                        <p>
+                            <div className={styles['description-title']}>
+                                <img src={src} alt={src} />
+                                <h2>{title}</h2>
+                            </div>
+                        </p>
+                    </FadeInOutText>
+                    <FadeInOutText
+                        text={content}
+                        className={styles['description-content']}
+                    >
+                        <ScrollableText>
+                            <p>{t(`main:${namespace}.${content}`)}</p>
+                        </ScrollableText>
+                    </FadeInOutText>
                 </div>
-            </div>
+            )}
         </div>
     )
 }

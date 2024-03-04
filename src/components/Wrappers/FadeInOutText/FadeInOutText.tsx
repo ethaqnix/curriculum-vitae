@@ -5,11 +5,16 @@ import styles from './FadeInOutText.module.scss'
 interface FadeInOutTextProps {
     children?: React.ReactNode
     text?: string | null
+    className?: string
 }
 
 type AnimationState = 'appearing' | 'disappearing' | 'appeared' | 'unload'
 
-const FadeInOutText = ({ children, text }: FadeInOutTextProps) => {
+const FadeInOutText = ({
+    children,
+    text,
+    className = '',
+}: FadeInOutTextProps) => {
     const [animationState, setAnimationState] =
         useState<AnimationState>('unload')
     const [displayedText, setDispayedText] = useState(() => text)
@@ -36,15 +41,15 @@ const FadeInOutText = ({ children, text }: FadeInOutTextProps) => {
         <div
             key={displayedText}
             className={classNames({
-                [styles['root']]: true,
                 [styles['disappeared']]: ['disappearing', 'unload'].includes(
                     animationState
                 ),
                 [styles['appeared']]: animationState !== 'disappearing',
+                [className]: !!className,
             })}
             onAnimationEnd={handleEndAnimation}
         >
-            <p>{content || null}</p>
+            {content || null}
         </div>
     )
 }

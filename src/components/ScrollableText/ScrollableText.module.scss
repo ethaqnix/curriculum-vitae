@@ -1,0 +1,28 @@
+.root {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.scroll {
+    overflow: scroll;
+    height: 100%;
+}
+
+.scroll-effect-top {
+    height: 75px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(var(--background-color), #1c1a1700);
+}
+
+.scroll-effect-bottom {
+    height: 75px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(#1c1a1700, var(--background-color));
+}

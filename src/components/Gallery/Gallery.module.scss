@@ -68,8 +68,7 @@
     @for $i from 1 to 4 {
         :nth-child(#{$i}).open {
             z-index: 1;
-            transform: translateX(calc(($i) * -50% + 50px))
-                translateY(calc(-100% + 50px));
+            transform: translateX(calc(($i) * -50% + 50px));
             opacity: 0;
         }
     }
@@ -77,7 +76,6 @@
 
 .description {
     white-space: pre-line;
-    overflow: scroll;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -106,8 +104,8 @@
     }
 
     .description-content {
-        overflow: scroll;
-        flex: 1;
+        height: 100%;
+        overflow: hidden;
     }
 
     .description-title {
