@@ -2,7 +2,7 @@ import { Dispatch, createContext } from 'react'
 import { initialViewState } from './reducer'
 import { ViewAction } from './action'
 
-export type Page = 'history' | 'music'
+export type Page = 'history' | 'music' | 'pdf'
 
 export interface DefaultViewState {
     page: Page
@@ -21,7 +21,12 @@ export interface HistoryViewState extends DefaultViewState {
     additionnalData?: {}
 }
 
-export type ViewState = HistoryViewState | MusicViewState
+export interface PDFViewState extends DefaultViewState {
+    page: 'pdf'
+    additionnalData?: {}
+}
+
+export type ViewState = HistoryViewState | MusicViewState | PDFViewState
 
 export const ViewStateContext = createContext<ViewState>(initialViewState)
 export const ViewDispatchContext = createContext(

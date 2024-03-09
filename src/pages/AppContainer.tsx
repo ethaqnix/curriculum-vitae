@@ -22,19 +22,19 @@ const AppContainer = () => {
                 [styles['menu-top']]: true,
             })}
         >
-            <Menu />
-            <div className={styles['app']}>
-                {showMobileWarning ? (
-                    <div>
-                        Sorry, this website is only available on desktop devices
-                        for now.
-                    </div>
-                ) : (
-                    <ViewProvider>
+            <ViewProvider>
+                <Menu />
+                <div className={styles['app']}>
+                    {showMobileWarning ? (
+                        <div>
+                            Sorry, this website is only available on desktop
+                            devices for now.
+                        </div>
+                    ) : (
                         <CV />
-                    </ViewProvider>
-                )}
-            </div>
+                    )}
+                </div>
+            </ViewProvider>
         </div>
     )
 }

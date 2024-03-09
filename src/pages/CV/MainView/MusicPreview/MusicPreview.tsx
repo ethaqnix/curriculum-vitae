@@ -12,7 +12,7 @@ const MusicPreview = () => {
         },
         dispatch,
     ] = useView() as [MusicViewState, Dispatch<ViewAction>]
-    const width = 1000
+    const width = 450
 
     return (
         <div className={styles.root}>

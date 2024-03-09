@@ -3,6 +3,7 @@ import styles from './MainView.module.scss'
 import { useView } from '@contexts/ViewContext'
 import History from './History'
 import MusicPreview from './MusicPreview'
+import PDFPreview from './PDFPreview'
 
 interface MainViewProps {}
 
@@ -13,6 +14,7 @@ const MainView = (props: MainViewProps) => {
         <div className={styles.root}>
             {view.page === 'history' && <History />}
             {view.page === 'music' && <MusicPreview />}
+            {view.page === 'pdf' && <PDFPreview />}
         </div>
     )
 }

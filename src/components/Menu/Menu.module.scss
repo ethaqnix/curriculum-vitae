@@ -25,6 +25,10 @@
     }
 }
 
+.divider {
+    flex: 1;
+}
+
 .menu__side {
     flex-direction: column;
     height: 100%;
@@ -68,4 +72,9 @@
         opacity: 0.4;
         color: var(--primary-color);
     }
+}
+
+button {
+    padding: var(--space-2);
+    margin: var(--space-2);
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Langages.module.scss'
 import { useTranslation } from 'react-i18next'
-import profile from '../profile.json'
+import profile from '../data/profile.json'
 
 const Langages = () => {
     const { t } = useTranslation('common')

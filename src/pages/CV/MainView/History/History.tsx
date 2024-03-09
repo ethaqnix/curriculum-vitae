@@ -1,70 +1,24 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import styles from './History.module.scss'
 import ImageGallery from '@components/Gallery/Gallery'
-import { defaultSkills, experiences } from './experiences'
-import { formations } from './formations'
-import StarCounter from '@components/StarCounter/StarCounter'
-import AnimatedList from '@components/AnimatedList/AnimatedList'
-import CirclePacking from '@components/CirclePacking'
-import skills from './skills.json'
-import { isObject } from '@utils/typeCheckers'
-import { D3Object } from '@components/CirclePacking/CirclePacking.class'
-
-interface NestedObject {
-    [key: string]: NestedObject | string[]
-}
+import { defaultSkills, experiences } from '../../data/experiences'
+import { formations } from '../../data/formations'
+import KeywordView from './KeywordView'
+import MainSkills from './MainSkills'
 
 const History = () => {
-    const [selectedSkills, setSelectedSkills] = useState(defaultSkills)
+    const [selectedContentId, setSelectedContentId] = useState<
+        string | undefined
+    >(undefined)
 
-    const formatSkillsData = useCallback(
-        (
-            data: NestedObject = skills,
-            filter: string | undefined = undefined
-        ): D3Object[] => {
-            return Object.keys(data).reduce((acc: D3Object[], key) => {
-                const value = data[key]
-                if (isObject(value)) {
-                    const children = formatSkillsData(
-                        value as NestedObject,
-                        filter
-                    )
-                    const returnValue = {
-                        name: key,
-                        children,
-                        size: children.reduce(
-                            (sum, c) => sum + (c.size || 0),
-                            0
-                        ),
-                    }
-
-                    if (returnValue.children.length) {
-                        return [...acc, returnValue]
-                    }
-                    return acc
-                } else if (Array.isArray(value)) {
-                    return [
-                        ...acc,
-                        {
-                            name: key,
-                            size: !filter || value.includes(filter) ? 1 : 0,
-                        },
-                    ]
-                }
-                return acc
-            }, [])
-        },
-        []
-    )
-
-    const formattedSkills = useMemo(
-        () => ({
-            name: 'skills',
-            children: formatSkillsData(skills, selectedSkills?.content),
-            size: 1,
-        }),
-        [selectedSkills?.content]
-    )
+    const selectedSkills = useMemo(() => {
+        if (!selectedContentId) return defaultSkills
+        return (
+            [...experiences, ...formations].find(
+                (item) => item.key === selectedContentId
+            )?.skills || []
+        )
+    }, [selectedContentId])
 
     return (
         <div className={styles['history']}>
@@ -74,11 +28,11 @@ const History = () => {
                     namespace="experience"
                     onImageClick={(index) => {
                         if (index === null) {
-                            setSelectedSkills(defaultSkills)
+                            setSelectedContentId(undefined)
                             return
                         }
-                        const { skills, software, content } = experiences[index]
-                        setSelectedSkills({ skills, software, content })
+                        const { key } = experiences[index]
+                        setSelectedContentId(key)
                     }}
                 />
             </div>
@@ -88,37 +42,22 @@ const History = () => {
                     namespace="formation"
                     onImageClick={(index) => {
                         if (index === null) {
-                            setSelectedSkills(defaultSkills)
+                            setSelectedContentId(undefined)
                             return
                         }
-                        const { skills, software } = formations[index]
-                        setSelectedSkills({ skills, software })
+                        const { key } = formations[index]
+                        setSelectedContentId(key)
                     }}
                 />
             </div>
-            <div className={styles.skills}>
-                <AnimatedList
-                    keys={defaultSkills.skills.map(({ title }) => title)}
-                    items={selectedSkills.skills.map(
-                        ({ level, title, order = 0 }) => ({
-                            component: (
-                                <StarCounter
-                                    count={level}
-                                    range={5}
-                                    label={title}
-                                />
-                            ),
-                            key: title,
-                            order,
-                        })
-                    )}
-                />
-            </div>
             <div className={styles.software}>
-                {/*<CirclePacking
-                    data={formattedSkills}
-                    skillId={selectedSkills?.content}
-                    />*/}
+                <KeywordView contentId={selectedContentId} />
+            </div>
+            <div className={styles.skills}>
+                <MainSkills
+                    contentId={selectedContentId}
+                    skills={selectedSkills}
+                />
             </div>
         </div>
     )

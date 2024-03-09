@@ -1,13 +1,13 @@
 {
     "contacts": "Contacts",
     "contact": {
-        "mail": "email",
+        "email": "email",
         "phoneNumber": "téléphone"
     },
     "languages": "Langages",
     "language": {
         "french": "français",
-        "english": "english",
+        "english": "englais",
         "spoken": "parlé",
         "native": "natif"
     },

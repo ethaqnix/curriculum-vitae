@@ -2,7 +2,7 @@ import { ViewAction } from './action'
 import { ViewState } from './context'
 
 export const initialViewState: ViewState = {
-    page: 'history',
+    page: 'pdf',
 }
 
 const ViewReducer = (

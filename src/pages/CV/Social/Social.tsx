@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Social.module.scss'
-import profile from '../profile.json'
+import profile from '../data/profile.json'
 
 const Social = () => {
     return (

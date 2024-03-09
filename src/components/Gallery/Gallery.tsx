@@ -13,7 +13,6 @@ interface ImageGalleryProps {
         src: string
         className?: string
         title?: string
-        content?: string
     }[]
     namespace: string
     onImageClick: (index: number | null) => void
@@ -39,11 +38,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         [selectedImageIndex]
     )
 
-    const {
-        title = '',
-        content = '',
-        src = '',
-    } = images[selectedImageIndex!] || {}
+    const { title = '', key = '', src = '' } = images[selectedImageIndex!] || {}
 
     return (
         <div className={classNames(styles['imageGallery'])}>
@@ -97,11 +92,11 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                         </p>
                     </FadeInOutText>
                     <FadeInOutText
-                        text={content}
+                        text={key}
                         className={styles['description-content']}
                     >
                         <ScrollableText>
-                            <p>{t(`main:${namespace}.${content}`)}</p>
+                            <p>{t(`main:${namespace}.${key}`)}</p>
                         </ScrollableText>
                     </FadeInOutText>
                 </div>
