@@ -1,20 +1,23 @@
 {
     "contacts": "Contacts",
     "contact": {
-        "email": "email",
-        "phoneNumber": "téléphone"
+        "email": "Email",
+        "phoneNumber": "Téléphone"
     },
     "languages": "Langages",
     "language": {
-        "french": "français",
-        "english": "englais",
+        "french": "Français",
+        "english": "Anglais",
         "spoken": "parlé",
         "native": "natif"
     },
     "interests": "Intérêts",
     "interest": {
-        "chess": "échecs",
-        "music": "music"
+        "chess": "Échecs",
+        "music": "Musique"
     },
-    "socials": "Lien utiles"
+    "socials": "Lien utiles",
+    "social": {
+        "vitrine": "Site vitrine"
+    }
 }

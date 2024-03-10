@@ -22,5 +22,8 @@ i18n.use(Backend)
         backend: {
             loadPath: `locales/{{lng}}/{{ns}}.json`,
         },
+        parseMissingKeyHandler: (missingKey) => {
+            return missingKey.split('.').reverse()[0]
+        },
     })
 export default i18n
