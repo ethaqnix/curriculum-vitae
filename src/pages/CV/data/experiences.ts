@@ -146,12 +146,4 @@ export const defaultSkills: Skill[] = [
         level: 2,
         order: 2,
     },
-    {
-        title: 'material-ui',
-        level: 0,
-    },
-    {
-        title: 'AWS',
-        level: 0,
-    },
 ]

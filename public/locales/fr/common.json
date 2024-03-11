@@ -4,19 +4,19 @@
         "email": "Email",
         "phoneNumber": "Téléphone"
     },
-    "languages": "Langages",
+    "languages": "Langues",
     "language": {
         "french": "Français",
         "english": "Anglais",
         "spoken": "parlé",
         "native": "natif"
     },
-    "interests": "Intérêts",
+    "interests": "Centres d'intérêt",
     "interest": {
         "chess": "Échecs",
         "music": "Musique"
     },
-    "socials": "Lien utiles",
+    "socials": "Liens utiles",
     "social": {
         "vitrine": "Site vitrine"
     }

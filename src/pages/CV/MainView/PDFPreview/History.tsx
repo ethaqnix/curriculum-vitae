@@ -1,17 +1,32 @@
 import React from 'react'
-import { StyleSheet, View } from '@react-pdf/renderer'
+import { StyleSheet, Text, View } from '@react-pdf/renderer'
+import HistorySection from './History/HistorySection'
+import { useTranslation } from 'react-i18next'
 
 const styles = StyleSheet.create({
     history: {
-        padding: 10,
+        paddingTop: 198,
+        paddingHorizontal: 8,
         flexGrow: 1,
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         flexWrap: 'wrap',
+        gap: 10,
     },
 })
 const PDFHistory = () => {
-    return <View style={styles.history}></View>
+    const { t } = useTranslation()
+
+    return (
+        <View style={styles.history}>
+            <HistorySection title={t(`main:formations`)}>
+                <Text>lorem ipsum</Text>
+            </HistorySection>
+            <HistorySection title={t(`main:experiences`)}>
+                <Text>lorem ipsum</Text>
+            </HistorySection>
+        </View>
+    )
 }
 
 {

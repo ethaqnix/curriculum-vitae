@@ -16,7 +16,7 @@
     display: grid;
     grid-template-areas:
         'contacts'
-        'langages'
+        'languages'
         'interests'
         'social';
     grid-area: profile;
@@ -37,8 +37,8 @@
     grid-area: social;
 }
 
-.langages {
-    grid-area: langages;
+.languages {
+    grid-area: languages;
 }
 
 .contacts {
@@ -67,7 +67,7 @@
         display: grid;
         grid-template-areas:
             'contacts'
-            'langages'
+            'languages'
             'interests'
             'social';
     }
@@ -115,7 +115,7 @@
         display: grid;
         grid-template-areas:
             'contacts'
-            'langages'
+            'languages'
             'interests'
             'social';
     }

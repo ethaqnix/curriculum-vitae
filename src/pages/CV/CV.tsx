@@ -21,7 +21,7 @@ const CV = () => {
                     <h3>{t('common:contacts') + ' :'}</h3>
                     <Contacts />
                 </section>
-                <section className={styles.langages}>
+                <section className={styles.languages}>
                     <h3>{t('common:languages') + ' :'}</h3>
                     <Langages />
                 </section>
