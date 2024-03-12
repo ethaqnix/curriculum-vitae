@@ -19,5 +19,25 @@
     "socials": "Liens utiles",
     "social": {
         "vitrine": "Site vitrine"
-    }
+    },
+    "month": {
+        "january": "Janvier",
+        "february": "Février",
+        "march": "Mars",
+        "april": "Avril",
+        "may": "Mai",
+        "june": "Juin",
+        "july": "Juillet",
+        "august": "Août",
+        "september": "Septembre",
+        "october": "Octobre",
+        "november": "Novembre",
+        "december": "Décembre"
+    },
+    "job": {
+        "web": "Développeur web",
+        "mobile": "Développeur mobile",
+        "web/mobile": "Développeur web et mobile"
+    },
+    "PDFFooter": "Ce CV à été généré à l'aide de React-pdf"
 }

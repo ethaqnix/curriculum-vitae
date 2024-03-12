@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from '@react-pdf/renderer'
 const styles = StyleSheet.create({
     root: {
         flexDirection: 'column',
+        width: '100%',
         gap: 8,
     },
     titleDiv: { flexDirection: 'row' },

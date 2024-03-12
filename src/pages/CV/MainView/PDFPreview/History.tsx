@@ -2,6 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View } from '@react-pdf/renderer'
 import HistorySection from './History/HistorySection'
 import { useTranslation } from 'react-i18next'
+import { experiences } from '@pages/CV/data/experiences'
+import PDFHistoryItem from './History/HistoryItem'
+import { formations } from '@pages/CV/data/formations'
 
 const styles = StyleSheet.create({
     history: {
@@ -19,11 +22,15 @@ const PDFHistory = () => {
 
     return (
         <View style={styles.history}>
-            <HistorySection title={t(`main:formations`)}>
-                <Text>lorem ipsum</Text>
-            </HistorySection>
             <HistorySection title={t(`main:experiences`)}>
-                <Text>lorem ipsum</Text>
+                {experiences.map((item) => (
+                    <PDFHistoryItem item={item} />
+                ))}
+            </HistorySection>
+            <HistorySection title={t(`main:formations`)}>
+                {formations.map((item) => (
+                    <PDFHistoryItem item={item} />
+                ))}
             </HistorySection>
         </View>
     )
