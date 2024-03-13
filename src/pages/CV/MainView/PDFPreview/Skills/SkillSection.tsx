@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from '@react-pdf/renderer'
+import colors from '../colors'
 
 const styles = StyleSheet.create({
     root: {
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'Poppins',
         fontSize: 16,
-        color: '#999999',
+        color: colors.tertiary,
         textTransform: 'uppercase',
         paddingBottom: 5,
     },

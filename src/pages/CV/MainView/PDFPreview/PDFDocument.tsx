@@ -5,6 +5,7 @@ import PDFHeader from './Header'
 import PDFSkills from './Skills'
 import PDFHistory from './History'
 import PDFFooter from './Footer'
+import colors from './colors'
 Font.register({
     family: 'Poppins',
     src: 'http://fonts.gstatic.com/s/poppins/v1/TDTjCH39JjVycIF24TlO-Q.ttf',
@@ -34,7 +35,7 @@ const PDFStyles = StyleSheet.create({
     page: {
         position: 'relative',
         flexDirection: 'column',
-        backgroundColor: '#E4E4E4',
+        backgroundColor: colors.background,
         flex: 1,
     },
     mainContent: {

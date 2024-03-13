@@ -1,0 +1,43 @@
+{
+    "obviousTechnologies": {
+        "1": "Travail en autonomie",
+        "2": "Développement d'application mobile en intranet",
+        "3": "Développement d'une application d'automatisation no-code",
+        "4": "Travail avec des sous-traitants internationnaux",
+        "5": "Développement d'un pannel d'administration auto-généré"
+    },
+    "wweeddoo": {
+        "1": "Travail en petite équipe",
+        "2": "Migration frontend d'une plateforme éxistante",
+        "3": "Assainissement de codebase",
+        "4": "Gestion de crise"
+    },
+    "mistertemp": {
+        "1": "Travail en grande équipe",
+        "2": "Application de la méthodologie SCRUM",
+        "3": "Creation de microservices et d'architecture AWS",
+        "4": "Création de microfrontend",
+        "5": "Écriture de tests E2E"
+    },
+    "iris": {
+        "1": "C",
+        "2": "C++",
+        "3": "C#",
+        "4": "Linux",
+        "5": "HTML/CSS"
+    },
+    "epitech": {
+        "1": "C",
+        "2": "C++",
+        "3": "javascript",
+        "4": "année internationale",
+        "5": "gestion de projet",
+        "6": "autonomie",
+        "7": "rigueur"
+    },
+    "selfTraining": {
+        "1": "CSS (Kevin Powell)",
+        "2": "react-native",
+        "3": "Typescript (Matt Pock)"
+    }
+}

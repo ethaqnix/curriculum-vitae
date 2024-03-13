@@ -6,23 +6,22 @@ import profile from '../../data/profile.json'
 import { useTranslation } from 'react-i18next'
 import SkillSection from './Skills/SkillSection'
 import PDFSkillListItem from './Skills/SkillListItem'
+import colors from './colors'
 
 const styles = StyleSheet.create({
     personnalsInfos: {
         paddingTop: 200,
         paddingHorizontal: 8,
         width: 200,
-        borderRightColor: 'black',
-        borderRightWidth: 1,
-        backgroundColor: '#282831',
-        gap: 20,
+        backgroundColor: colors.secondary,
+        gap: 16,
     },
     icon: {
         width: 20,
         height: 20,
     },
     link: {
-        color: '#E4E4E4',
+        color: colors.background,
         fontSize: 8,
         textDecoration: 'none',
     },

@@ -1,14 +1,15 @@
 import React from 'react'
 import { Rect, StyleSheet, Svg, Text, View } from '@react-pdf/renderer'
+import colors from '../colors'
 
 const styles = StyleSheet.create({
     root: {
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 5,
+        gap: 4,
     },
     text: {
-        color: '#E4E4E4',
+        color: colors.background,
         fontSize: 11,
     },
 })

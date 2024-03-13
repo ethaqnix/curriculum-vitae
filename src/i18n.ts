@@ -9,7 +9,7 @@ i18n.use(Backend)
     .init({
         fallbackLng: 'fr',
         debug: false,
-        ns: ['main', 'common'],
+        ns: ['main', 'common', 'pdf'],
         defaultNS: 'common',
         load: 'languageOnly',
         interpolation: {

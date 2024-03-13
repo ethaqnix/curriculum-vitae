@@ -1,12 +1,13 @@
 import { Rect, StyleSheet, Svg, Text, View } from '@react-pdf/renderer'
 import React from 'react'
+import colors from '../colors'
 
 const styles = StyleSheet.create({
     root: {
         flexDirection: 'column',
     },
     title: {
-        color: '#E4E4E4',
+        color: colors.background,
         fontSize: 11,
         paddingBottom: 4,
     },

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from '@react-pdf/renderer'
 import profile from '../../data/profile.json'
+import colors from './colors'
 
 const styles = StyleSheet.create({
     header: {
@@ -10,10 +11,10 @@ const styles = StyleSheet.create({
         padding: 10,
         height: 140,
         width: 495,
-        backgroundColor: '#138f9e',
+        backgroundColor: colors.primary,
         flexDirection: 'row',
-        gap: 10,
-        borderColor: '#E4E4E4',
+        gap: 8,
+        borderColor: colors.background,
         borderWidth: 10,
     },
     icon: {
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontFamily: 'Poppins',
-        color: '#E4E4E4',
+        color: colors.background,
         fontSize: 32,
         fontWeight: 900,
     },
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     },
     itemText: {
         fontFamily: 'Poppins',
-        color: '#E4E4E4',
+        color: colors.background,
         fontSize: 14,
         fontWeight: 900,
     },

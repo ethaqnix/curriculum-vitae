@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     text: {
         color: colors.tertiary,
         paddingLeft: 210,
-        fontSize: 12,
+        fontSize: 10,
     },
 })
 

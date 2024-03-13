@@ -9,10 +9,9 @@ interface PDFHistoryItemProps {
     item: HistoryItem
 }
 
-console.log(colors)
-
 const styles = StyleSheet.create({
     root: {
+        maxWidth: '100%',
         fontFamily: 'Roboto',
         flexDirection: 'column',
         flexGrow: 1,

@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from '@react-pdf/renderer'
+import colors from '../colors'
 
 const styles = StyleSheet.create({
     root: {
@@ -8,14 +9,14 @@ const styles = StyleSheet.create({
         gap: 8,
     },
     titleDiv: { flexDirection: 'row' },
-    titleDivEnd: { flexGrow: 1, backgroundColor: '#E4E4E4' },
+    titleDivEnd: { flexGrow: 1, backgroundColor: colors.background },
     title: {
         padding: 2,
         textAlign: 'center',
-        backgroundColor: '#138f9e',
+        backgroundColor: colors.primary,
         fontFamily: 'Poppins',
         fontSize: 16,
-        color: '#E4E4E4',
+        color: colors.background,
         textTransform: 'uppercase',
     },
 })
