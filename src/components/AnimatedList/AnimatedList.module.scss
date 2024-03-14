@@ -7,6 +7,9 @@
     }
 }
 .animated-list {
+    --list-item-size: 3vh;
+    height: calc((var(--list-item-size) + var(--space-2)) * 5);
+    width: 100%;
     position: relative;
     top: 0;
 
@@ -22,7 +25,7 @@
         .animated-list-item-#{$i} {
             animation: fadeIn 4s;
             z-index: 1;
-            top: calc(($i) * (30px + var(--space-2)));
+            top: calc(($i) * (var(--list-item-size) + var(--space-2)));
             opacity: 1;
         }
     }

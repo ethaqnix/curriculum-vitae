@@ -10,5 +10,6 @@ body {
 html,
 body,
 body > div {
-    height: 100vh;
+    height: 100%;
+    overflow: scroll;
 }

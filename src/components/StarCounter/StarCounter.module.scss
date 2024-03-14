@@ -7,6 +7,8 @@
 }
 
 .star-ratings {
+    --star-size: min(4vh, 3vw);
+    font-size: calc(var(--star-size) - 1vh);
     padding: var(--space-4);
     gap: var(--space-4);
     color: #ccc;
@@ -16,13 +18,10 @@
     margin: 0;
     padding: 0;
     .fill-ratings {
-        font-size: clamp(16px, 1.9vw, 30px);
+        font-size: var(--star-size);
         padding: 0;
         position: absolute;
         z-index: 1;
-        display: block;
-        top: 0;
-        left: 0;
         overflow: hidden;
         transition: width 2s;
         animation: discoverFromLeft 2s linear;
@@ -34,7 +33,7 @@
         }
     }
     .empty-ratings {
-        font-size: clamp(16px, 1.9vw, 30px);
+        font-size: var(--star-size);
         position: relative;
         padding: 0;
         display: block;
