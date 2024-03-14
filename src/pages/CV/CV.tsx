@@ -26,7 +26,7 @@ const CV = () => {
                     <Langages />
                 </section>
                 <section className={styles.interests}>
-                    <h3>centre d'intéret :</h3>
+                    <h3>{t('common:interests') + ' :'}</h3>
                     <Interests />
                 </section>
                 <div className={styles.social}>

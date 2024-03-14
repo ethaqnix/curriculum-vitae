@@ -20,13 +20,11 @@
         'interests'
         'social';
     grid-area: profile;
-    border-right: 0.2em solid var(--secondary-color);
 }
 
 .picture {
     position: relative;
     grid-area: picture;
-    border-right: 0.2em solid var(--secondary-color);
 }
 
 .interests {
@@ -49,31 +47,15 @@
     grid-area: mainView;
 }
 
-@media screen and (max-width: 1050px) {
-    .root {
-        padding: var(--space-3);
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr 2fr 2fr;
-        grid-template-areas:
-            'picture history history'
-            'picture history history'
-            'profile history history'
-            'profile history history'
-            'profile history history'
-            'profile history history';
+@media screen and (min-width: 800px) {
+    .picture {
+        border-right: 0.2em solid var(--secondary-color);
     }
-    .profile {
-        display: grid;
-        grid-template-areas:
-            'contacts'
-            'languages'
-            'interests'
-            'social';
-    }
-}
 
-@media screen and (min-width: 768px) {
+    .profile {
+        border-right: 0.2em solid var(--secondary-color);
+    }
+
     .picture::after,
     .picture::before {
         position: absolute;
@@ -97,26 +79,5 @@
         transform: skew(-20deg);
         bottom: var(--space-10);
         border-right: 0.2em solid var(--secondary-color);
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .root {
-        padding: var(--space-4);
-        min-height: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            'picture'
-            'profile'
-            'history';
-    }
-    .profile {
-        display: grid;
-        grid-template-areas:
-            'contacts'
-            'languages'
-            'interests'
-            'social';
     }
 }

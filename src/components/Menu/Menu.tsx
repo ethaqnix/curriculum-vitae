@@ -1,18 +1,24 @@
-import classNames from 'classnames'
 import React from 'react'
+import classNames from 'classnames'
 import styles from './Menu.module.scss'
 import Sharigan from '@components/sharigan/Sharigan'
-import { useView } from '@contexts/ViewContext'
-import { changePage } from '@contexts/ViewContext/action'
 import Button from '@components/Button'
-
-let cx = classNames.bind(styles)
+import PDFDocument from '@pages/CV/MainView/PDFPreview/PDFDocument'
+import { saveAs } from 'file-saver'
+import { pdf } from '@react-pdf/renderer'
+import { useTranslation } from 'react-i18next'
 
 const Menu = () => {
-    const [, dispatch] = useView()
+    const { t } = useTranslation()
+
+    const generatePdfDocument = async () => {
+        const blob = await pdf(<PDFDocument />).toBlob()
+        saveAs(blob, 'CV-Denizot-Romain.pdf')
+    }
+
     return (
         <div
-            className={cx({
+            className={classNames({
                 [styles['menu']]: true,
                 [styles[`menu__top`]]: true,
             })}
@@ -23,11 +29,10 @@ const Menu = () => {
             </span>
             <div className={styles.divider} />
             <Button
-                onClick={() => {
-                    dispatch(changePage({ page: 'pdf' }))
-                }}
+                className={styles['downloadButton']}
+                onClick={() => generatePdfDocument()}
             >
-                PDF
+                {t('common:downloadPDF')}
             </Button>
         </div>
     )
