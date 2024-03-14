@@ -16,7 +16,8 @@ const AppContainer = () => {
     }, [width])
 
     return (
-        <div
+        <main
+            role="main"
             className={classNames({
                 [styles['root']]: true,
                 [styles['menu-top']]: true,
@@ -35,7 +36,7 @@ const AppContainer = () => {
                     )}
                 </div>
             </ViewProvider>
-        </div>
+        </main>
     )
 }
 export default AppContainer

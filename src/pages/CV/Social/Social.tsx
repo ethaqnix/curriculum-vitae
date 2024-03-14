@@ -9,6 +9,7 @@ const Social = () => {
                 href={profile.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Open github"
             >
                 <div className={styles.github} />
             </a>
@@ -16,6 +17,7 @@ const Social = () => {
                 href={profile.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Open linkedin"
             >
                 <div className={styles.linkedin} />
             </a>

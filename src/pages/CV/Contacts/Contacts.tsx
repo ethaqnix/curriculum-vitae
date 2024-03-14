@@ -9,7 +9,7 @@ const Contacts = () => {
     return (
         <div className={styles.root}>
             {Object.entries(profile.contact).map(([key, value]) => (
-                <p>
+                <p key={key}>
                     <b>{`${t(`common:contact.${key}`)} : `}</b>
                     {value}
                 </p>

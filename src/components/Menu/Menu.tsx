@@ -17,7 +17,7 @@ const Menu = () => {
     }
 
     return (
-        <div
+        <header
             className={classNames({
                 [styles['menu']]: true,
                 [styles[`menu__top`]]: true,
@@ -34,7 +34,7 @@ const Menu = () => {
             >
                 {t('common:downloadPDF')}
             </Button>
-        </div>
+        </header>
     )
 }
 

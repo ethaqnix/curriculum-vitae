@@ -7,6 +7,7 @@
 }
 
 .software {
+    display: flex;
     grid-area: software;
 }
 
@@ -27,5 +28,5 @@
         'software skills'
         'software skills';
     grid-auto-rows: 1fr;
-    grid-auto-columns: 1fr;
+    grid-auto-columns: 50% 50%;
 }

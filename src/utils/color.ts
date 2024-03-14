@@ -11,8 +11,6 @@ export const createGradient = (
     endingColor: UtilsColor,
     numberOfIteration: number
 ) => {
-    console.log(startingColor, endingColor, numberOfIteration)
-
     let formattedStartingColor: ColorWithOpacity,
         formattedEndingColor: ColorWithOpacity
 
@@ -34,8 +32,6 @@ export const createGradient = (
             (endingColorNumber - number) / (numberOfIteration - 1)
         )
     })
-
-    console.log('increments', increments)
 
     return Array.from(Array(numberOfIteration - 1).keys())
         .map((index: number) => {

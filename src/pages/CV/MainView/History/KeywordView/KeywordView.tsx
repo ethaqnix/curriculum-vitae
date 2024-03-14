@@ -98,12 +98,7 @@ const KeywordView = ({ contentId }: KeywordViewProps) => {
         return getWordList(formattedSkills.children, 0)
     }, [contentId])
 
-    return (
-        <div className={styles.root}>
-            <WorldCloud wordList={formattedWordList} />
-            {/*<CirclePacking data={formattedSkills} skillId={skillId} />*/}
-        </div>
-    )
+    return <WorldCloud wordList={formattedWordList} />
 }
 
 export default KeywordView

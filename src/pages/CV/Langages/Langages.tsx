@@ -8,7 +8,7 @@ const Langages = () => {
     return (
         <div className={styles.root}>
             {Object.entries(profile.languages).map(([language, level]) => (
-                <p>
+                <p key={language}>
                     <b>{`${t(`common:language.${language}`)} : `}</b>
                     {t(`common:language.${level}`)}
                 </p>

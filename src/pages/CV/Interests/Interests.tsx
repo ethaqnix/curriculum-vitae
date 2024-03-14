@@ -36,7 +36,7 @@ const Interests = (props: InterestsProps) => {
                     <b>{`${t('common:interest.music')} : `}</b>
                 </p>
                 {Object.entries(musicUrls).map(([name, url]) => (
-                    <span title={name}>
+                    <span title={name} key={name}>
                         <a
                             onClick={() =>
                                 dispatch(
@@ -53,6 +53,7 @@ const Interests = (props: InterestsProps) => {
                             <img
                                 src="img/musical-note.png"
                                 className={styles.icon}
+                                alt="music icon"
                             ></img>
                         </a>
                     </span>
