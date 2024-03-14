@@ -7,11 +7,12 @@
 .scroll {
     overflow: scroll;
     height: 100%;
+    padding-right: var(--space-4);
 }
 
 .scroll-effect-top {
     height: 75px;
-
+    pointer-events: none;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -20,6 +21,7 @@
 }
 
 .scroll-effect-bottom {
+    pointer-events: none;
     height: 75px;
     position: absolute;
     bottom: 0;

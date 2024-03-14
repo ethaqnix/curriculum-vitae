@@ -90,12 +90,6 @@
     background-color: var(--background-color);
     transition: all 0.5s;
 
-    p {
-        padding-left: 100px;
-        padding-right: 100px;
-        padding-top: 25px;
-    }
-
     img {
         overflow: hidden;
         border-radius: 50%;
@@ -107,10 +101,16 @@
     .description-content {
         height: 100%;
         overflow: hidden;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 25px;
     }
 
     .description-title {
         display: flex;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 25px;
     }
 }
 
