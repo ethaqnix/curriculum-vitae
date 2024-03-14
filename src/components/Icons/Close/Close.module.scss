@@ -7,9 +7,12 @@
     height: var(--space-8);
     opacity: 0.6;
 }
-.close:hover {
-    opacity: 1;
+
+.close:hover:before,
+.close:hover:after {
+    background-color: var(--contrast-text-color);
 }
+
 .close:before,
 .close:after {
     position: absolute;

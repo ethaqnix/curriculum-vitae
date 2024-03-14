@@ -28,3 +28,8 @@
         transform: rotate(30deg);
     }
 }
+
+.next:hover .top-bar,
+.next:hover .bottom-bar {
+    background-color: var(--contrast-text-color);
+}

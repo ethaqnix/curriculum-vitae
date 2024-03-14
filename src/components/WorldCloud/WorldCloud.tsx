@@ -23,22 +23,25 @@ const WorldCloud = ({ wordList }: WorldCloudProps) => {
             Math.max(...wordList.map(({ color }) => color)) + 1
         )
     }, [wordList])
+
     const getColorFromValue = (value: number) => {
         const [r, g, b] = gradient[value]
         return `rgb(${r},${g},${b})`
     }
 
     return (
-        <ReactWordCloud
-            words={wordList}
-            callbacks={{
-                getWordColor: ({ color }) => getColorFromValue(color),
-            }}
-            options={{
-                rotations: 10,
-                rotationAngles: [-10, 10],
-            }}
-        />
+        <div className={styles.root}>
+            <ReactWordCloud
+                words={wordList}
+                callbacks={{
+                    getWordColor: ({ color }) => getColorFromValue(color),
+                }}
+                options={{
+                    rotations: 10,
+                    rotationAngles: [-10, 10],
+                }}
+            />
+        </div>
     )
 }
 

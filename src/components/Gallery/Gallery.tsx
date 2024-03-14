@@ -84,12 +84,10 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                         />
                     )}
                     <FadeInOutText text={title}>
-                        <p>
-                            <div className={styles['description-title']}>
-                                <img src={src} alt={src} />
-                                <h2>{title}</h2>
-                            </div>
-                        </p>
+                        <div className={styles['description-title']}>
+                            <img src={src} alt={src} />
+                            <h2>{title}</h2>
+                        </div>
                     </FadeInOutText>
                     <FadeInOutText
                         text={key}
