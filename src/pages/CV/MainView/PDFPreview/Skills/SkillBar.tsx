@@ -1,5 +1,5 @@
-import { Rect, StyleSheet, Svg, Text, View } from '@react-pdf/renderer'
 import React from 'react'
+import { Rect, StyleSheet, Svg, Text, View } from '@react-pdf/renderer'
 import colors from '../colors'
 
 const styles = StyleSheet.create({

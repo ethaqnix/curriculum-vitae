@@ -22,42 +22,41 @@ const History = () => {
 
     return (
         <div className={styles['history']}>
-            <div className={styles.experiences}>
-                <ImageGallery
-                    images={experiences}
-                    namespace="experience"
-                    onImageClick={(index) => {
-                        if (index === null) {
-                            setSelectedContentId(undefined)
-                            return
-                        }
-                        const { key } = experiences[index]
-                        setSelectedContentId(key)
-                    }}
-                />
-            </div>
-            <div className={styles.formations}>
-                <ImageGallery
-                    images={formations}
-                    namespace="formation"
-                    onImageClick={(index) => {
-                        if (index === null) {
-                            setSelectedContentId(undefined)
-                            return
-                        }
-                        const { key } = formations[index]
-                        setSelectedContentId(key)
-                    }}
-                />
+            <div className={styles['history-item-description']}>
+                <div className={styles.experiences}>
+                    <ImageGallery
+                        images={experiences}
+                        namespace="experience"
+                        onImageClick={(index) => {
+                            if (index === null) {
+                                setSelectedContentId(undefined)
+                                return
+                            }
+                            const { key } = experiences[index]
+                            setSelectedContentId(key)
+                        }}
+                    />
+                </div>
+                <div className={styles.formations}>
+                    <ImageGallery
+                        images={formations}
+                        namespace="formation"
+                        onImageClick={(index) => {
+                            if (index === null) {
+                                setSelectedContentId(undefined)
+                                return
+                            }
+                            const { key } = formations[index]
+                            setSelectedContentId(key)
+                        }}
+                    />
+                </div>
             </div>
             <div className={styles.software}>
                 <KeywordView contentId={selectedContentId} />
             </div>
             <div className={styles.skills}>
-                <MainSkills
-                    contentId={selectedContentId}
-                    skills={selectedSkills}
-                />
+                <MainSkills skills={selectedSkills} />
             </div>
         </div>
     )

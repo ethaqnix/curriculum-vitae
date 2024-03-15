@@ -5,10 +5,8 @@ import History from './History'
 import MusicPreview from './MusicPreview'
 import PDFPreview from './PDFPreview'
 
-interface MainViewProps {}
-
-const MainView = (props: MainViewProps) => {
-    const [view, dispatch] = useView()
+const MainView = () => {
+    const [view] = useView()
 
     return (
         <div className={styles.root}>

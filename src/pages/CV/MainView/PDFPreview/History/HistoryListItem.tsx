@@ -1,5 +1,5 @@
 import React from 'react'
-import { Circle, Rect, StyleSheet, Svg, Text, View } from '@react-pdf/renderer'
+import { Circle, StyleSheet, Svg, Text, View } from '@react-pdf/renderer'
 import colors from '../colors'
 
 const styles = StyleSheet.create({

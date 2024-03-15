@@ -18,6 +18,7 @@ export interface ExperienceItem {
 }
 
 export interface Skill {
+    includeInPDF?: boolean
     title: string
     level: number
     order?: number
@@ -146,34 +147,81 @@ export const defaultSkills: Skill[] = [
         title: 'ReactJS',
         level: 4.5,
         order: 0,
+        includeInPDF: true,
     },
     {
         title: 'NodeJS',
         level: 3.5,
         order: 1,
+        includeInPDF: true,
     },
     {
         title: 'react-native',
         level: 3,
         order: 2,
+        includeInPDF: true,
     },
     {
         title: 'HTML / CSS',
         level: 3,
         order: 3,
+        includeInPDF: true,
     },
     {
         title: 'Cypress / Playwrigth',
         level: 2,
+        includeInPDF: true,
     },
     {
         title: 'DevOps',
         level: 2,
         order: 4,
+        includeInPDF: true,
     },
     {
         title: 'Docker',
         level: 2,
         order: 2,
+        includeInPDF: false,
+    },
+    {
+        title: 'material-ui',
+        level: 0,
+        includeInPDF: false,
+    },
+    {
+        title: 'AWS',
+        level: 0,
+        includeInPDF: false,
+    },
+    {
+        title: 'C',
+        level: 2,
+        order: 2,
+        includeInPDF: false,
+    },
+    {
+        title: 'C++',
+        level: 1,
+        order: 2,
+        includeInPDF: false,
+    },
+    {
+        title: 'Linux',
+        level: 3,
+        order: 2,
+        includeInPDF: false,
+    },
+    {
+        title: 'Python',
+        level: 3,
+        order: 2,
+        includeInPDF: false,
+    },
+    {
+        title: 'Typescript',
+        level: 4,
+        order: 2,
+        includeInPDF: true,
     },
 ]

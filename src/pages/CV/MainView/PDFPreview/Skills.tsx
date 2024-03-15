@@ -53,9 +53,11 @@ const PDFSkills = () => {
     return (
         <View style={styles.personnalsInfos}>
             <SkillSection title={t('main:skills')}>
-                {defaultSkills.map(({ title, level }) => (
-                    <PDFSkillBar title={title} percentage={level * 20} />
-                ))}
+                {defaultSkills
+                    .filter(({ includeInPDF }) => !!includeInPDF)
+                    .map(({ title, level }) => (
+                        <PDFSkillBar title={title} percentage={level * 20} />
+                    ))}
             </SkillSection>
             <SkillSection title={t('common:languages')}>
                 {Object.entries(profile.languages).map(([language, level]) => (

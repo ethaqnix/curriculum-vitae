@@ -7,10 +7,10 @@
 }
 
 .star-ratings {
-    --star-size: min(4vh, 3vw);
+    --star-size: min(3vh, 2.5vw);
     font-size: calc(var(--star-size) - 1vh);
     padding: var(--space-4);
-    gap: var(--space-4);
+    gap: var(--space-3);
     color: #ccc;
     position: relative;
     display: flex;

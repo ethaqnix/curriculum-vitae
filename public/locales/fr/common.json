@@ -39,6 +39,6 @@
         "mobile": "Développeur mobile",
         "web/mobile": "Développeur web et mobile"
     },
-    "PDFFooter": "Ce CV à été généré à l'aide de react-pdf",
+    "PDFFooter": "Ce CV a été généré à l'aide de react-pdf",
     "downloadPDF": "Télécharger au format PDF"
 }

@@ -24,9 +24,9 @@ const Menu = () => {
             })}
         >
             <Sharigan />
-            <span className={styles['title']}>
+            <h1 className={styles['title']}>
                 {'Curriculum Vitae - Romain Denizot'}
-            </span>
+            </h1>
             <div className={styles.divider} />
             <Button
                 className={styles['downloadButton']}

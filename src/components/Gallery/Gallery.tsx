@@ -6,14 +6,11 @@ import { NextIcon, PreviousIcon } from '@components/Icons'
 import FadeInOutText from '@components/Wrappers/FadeInOutText/FadeInOutText'
 import { useTranslation } from 'react-i18next'
 import ScrollableText from '@components/ScrollableText'
+import { getDateToText } from '@utils/date'
+import { HistoryItem } from '@pages/CV/data/experiences'
 
 interface ImageGalleryProps {
-    images: {
-        key?: string
-        src: string
-        className?: string
-        title?: string
-    }[]
+    images: (HistoryItem & { className?: string })[]
     namespace: string
     onImageClick: (index: number | null) => void
 }
@@ -38,25 +35,33 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         [selectedImageIndex]
     )
 
-    const { title = '', key = '', src = '' } = images[selectedImageIndex!] || {}
+    const {
+        title = '',
+        key = '',
+        src = '',
+        date,
+    } = images[selectedImageIndex!] || {}
 
     return (
-        <div className={classNames(styles['imageGallery'])}>
-            {images.map(({ src, key, className }, index) => (
-                <div
-                    key={key || src}
-                    className={classNames(
-                        styles['img'],
-                        isOpen && styles['open'],
-                        className,
-                        selectedImageIndex === index && styles['selected']
-                    )}
-                    onClick={() => handleImageClick(index)}
-                >
-                    <img src={src} alt={`image-${index}`}></img>
-                </div>
-            ))}
-            {isOpen && (
+        <div>
+            <h2 className={styles['title']}>{`${t(
+                `main:${namespace}s`
+            )} :`}</h2>
+            <div className={classNames(styles['imageGallery'])}>
+                {images.map(({ src, key, className }, index) => (
+                    <div
+                        key={key || src}
+                        className={classNames(
+                            styles['img'],
+                            isOpen && styles['open'],
+                            className,
+                            selectedImageIndex === index && styles['selected']
+                        )}
+                        onClick={() => handleImageClick(index)}
+                    >
+                        <img src={src} alt={`image-${index}`}></img>
+                    </div>
+                ))}
                 <div
                     className={classNames(
                         styles['description'],
@@ -86,7 +91,10 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                     <FadeInOutText text={title}>
                         <div className={styles['description-title']}>
                             <img src={src} alt={src} />
-                            <h2>{title}</h2>
+                            <div>
+                                <h2>{title}</h2>
+                                <span>{date && getDateToText(date, t)}</span>
+                            </div>
                         </div>
                     </FadeInOutText>
                     <FadeInOutText
@@ -98,7 +106,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                         </ScrollableText>
                     </FadeInOutText>
                 </div>
-            )}
+            </div>
         </div>
     )
 }
