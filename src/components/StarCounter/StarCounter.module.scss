@@ -40,3 +40,16 @@
         z-index: 0;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .star-ratings {
+        --star-size: 3vw;
+        font-size: calc(var(--star-size));
+        .fill-ratings {
+            font-size: var(--star-size);
+        }
+        .empty-ratings {
+            font-size: var(--star-size);
+        }
+    }
+}

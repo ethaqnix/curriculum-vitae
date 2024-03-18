@@ -13,7 +13,7 @@ const CV = () => {
 
     return (
         <div className={styles.root}>
-            <section className={styles.picture}>
+            <section className={styles.picture} id="profile-section">
                 <ProfilePicture />
             </section>
             <section className={styles.profile}>
@@ -34,7 +34,7 @@ const CV = () => {
                     <Social />
                 </div>
             </section>
-            <section className={styles.mainView}>
+            <section className={styles.mainView} id="history-section">
                 <MainView />
             </section>
         </div>

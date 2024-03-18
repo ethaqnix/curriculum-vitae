@@ -1,6 +1,6 @@
 .next {
     z-index: 1;
-    width: 5em;
+    width: 5vw;
     min-height: 100px;
     position: absolute;
     top: 0;
@@ -27,6 +27,10 @@
         transform-origin: top right;
         transform: rotate(30deg);
     }
+}
+
+.next:hover {
+    opacity: 1;
 }
 
 .next:hover .top-bar,

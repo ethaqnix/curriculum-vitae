@@ -1,5 +1,6 @@
-@media screen and (min-height: 820px) {
+@media screen and (min-width: 800px) {
     :root {
+        --header-size: 100px;
         --space-0: 0.1rem;
         --space-1: 0.2rem;
         --space-2: 0.4rem;
@@ -23,8 +24,9 @@
     }
 }
 
-@media screen and (max-height: 820px) {
+@media screen and (max-width: 799px) {
     :root {
+        --header-size: 100px;
         --space-0: 0.1rem;
         --space-1: 0.15rem;
         --space-2: 0.2rem;

@@ -1,25 +1,3 @@
-.root {
-    grid-template-columns: 1fr 4fr;
-    grid-auto-rows: 1fr;
-    padding: var(--space-4);
-    flex: 1;
-    display: grid;
-    grid-template-areas:
-        'picture mainView'
-        'profile mainView'
-        'profile mainView';
-}
-
-.profile {
-    display: grid;
-    grid-template-areas:
-        'contacts'
-        'languages'
-        'interests'
-        'social';
-    grid-area: profile;
-}
-
 .picture {
     position: relative;
     grid-area: picture;
@@ -46,6 +24,28 @@
 }
 
 @media screen and (min-width: 800px) {
+    .root {
+        grid-template-columns: 1fr 4fr;
+        grid-auto-rows: 1fr;
+        padding: var(--space-4);
+        flex: 1;
+        display: grid;
+        grid-template-areas:
+            'picture mainView'
+            'profile mainView'
+            'profile mainView';
+    }
+
+    .profile {
+        display: grid;
+        grid-template-areas:
+            'contacts'
+            'languages'
+            'interests'
+            'social';
+        grid-area: profile;
+    }
+
     .picture {
         border-right: 0.2em solid var(--secondary-color);
     }
@@ -77,5 +77,33 @@
         transform: skew(-20deg);
         bottom: var(--space-10);
         border-right: 0.2em solid var(--secondary-color);
+    }
+}
+
+@media screen and (max-width: 799px) {
+    .root {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows:
+            repeat(3, calc((100vh - var(--header-size)) / 3))
+            calc(100vh);
+
+        flex: 1;
+        display: grid;
+        grid-template-areas:
+            'picture picture'
+            'profile profile'
+            'profile profile'
+            'mainView mainView';
+    }
+
+    .profile {
+        display: grid;
+        padding: var(--space-4);
+        grid-template-areas:
+            'contacts'
+            'languages'
+            'interests'
+            'social';
+        grid-area: profile;
     }
 }

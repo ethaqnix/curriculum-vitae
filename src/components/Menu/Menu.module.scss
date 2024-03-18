@@ -1,6 +1,7 @@
 .menu {
+    min-height: var(--header-size);
+    height: var(--header-size);
     padding: var(--space-4);
-    position: sticky;
     box-sizing: border-box;
     display: flex;
     gap: 8px;
@@ -29,27 +30,6 @@
 
 .divider {
     flex: 1;
-}
-
-.menu__side {
-    flex-direction: column;
-    height: 100%;
-
-    nav {
-        flex-direction: column;
-        margin-bottom: auto;
-    }
-
-    nav > .link {
-        padding-top: var(--space-2);
-        padding-bottom: var(--space-2);
-        border-top: 1px solid var(--contrast-text-color);
-    }
-}
-
-.menu-switch {
-    color: var(--primary-color);
-    width: var(--space-12);
 }
 
 .menu-nav {
@@ -115,4 +95,16 @@ button {
 .downloadButton:hover {
     color: var(--text-primary);
     background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 800px) {
+    .menu {
+        .title {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 600;
+            font-size: 12px;
+            padding: var(--space-2) var(--space-2);
+            color: var(--contrast-text-color);
+        }
+    }
 }
