@@ -52,18 +52,18 @@ export const formations: HistoryItem[] = [
             },
             {
                 title: 'Python',
-                level: 2,
+                level: 3,
                 order: 4,
             },
             {
                 title: 'ReactJS',
-                level: 3,
+                level: 2,
                 order: 4,
             },
         ],
     },
     {
-        src: '',
+        src: 'https://www.creativefabrica.com/wp-content/uploads/2020/01/04/E-Learning-Icon-Graphics-1-49-580x386.jpg',
         title: 'selfTraining',
         key: 'selfTraining',
         date: [[1995], [2024]],

@@ -40,7 +40,7 @@ export const experiences: HistoryItem[] = [
         skills: [
             {
                 title: 'ReactJS',
-                level: 1,
+                level: 3,
                 order: 1,
             },
             {
@@ -51,7 +51,7 @@ export const experiences: HistoryItem[] = [
             {
                 title: 'material-ui',
                 level: 4,
-                order: 6,
+                order: 5,
             },
             {
                 title: 'NodeJS',
@@ -61,7 +61,7 @@ export const experiences: HistoryItem[] = [
             {
                 title: 'Docker',
                 level: 2,
-                order: 5,
+                order: 4,
             },
         ],
     },
@@ -78,7 +78,7 @@ export const experiences: HistoryItem[] = [
             {
                 title: 'ReactJS',
                 level: 5,
-                order: 5,
+                order: 1,
             },
             {
                 title: 'NodeJS',
@@ -98,7 +98,7 @@ export const experiences: HistoryItem[] = [
             {
                 title: 'material-ui',
                 level: 4,
-                order: 1,
+                order: 5,
             },
         ],
     },
@@ -125,7 +125,7 @@ export const experiences: HistoryItem[] = [
             },
             {
                 title: 'ReactJS',
-                level: 1,
+                level: 4,
                 order: 1,
             },
             {
