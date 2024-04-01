@@ -9,7 +9,7 @@ interface ProfilePictureProps {}
 const ProfilePicture: React.FC<ProfilePictureProps> = ({}) => {
     return (
         <div className={classNames(styles['profilePicture'])}>
-            <img alt="coucou c'est moi" />
+            <img src="img/profilePicture.jpg" alt="coucou c'est moi" />
         </div>
     )
 }
