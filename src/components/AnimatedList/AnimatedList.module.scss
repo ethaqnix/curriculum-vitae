@@ -7,7 +7,7 @@
     }
 }
 .animated-list {
-    --list-item-size: 2.5vw;
+    --list-item-size: 1.5vw;
     height: calc((var(--list-item-size) + var(--space-2)) * 5);
     width: 100%;
     position: relative;
