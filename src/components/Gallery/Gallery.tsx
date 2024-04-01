@@ -92,7 +92,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                         <div className={styles['description-title']}>
                             <img src={src} alt={src} />
                             <div>
-                                <h2>{title}</h2>
+                                <h2>{t(`main:${key}`)}</h2>
                                 <span>{date && getDateToText(date, t)}</span>
                             </div>
                         </div>
