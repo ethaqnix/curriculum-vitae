@@ -1,8 +1,8 @@
 ## développements en cours
 
--   [En cours] remplissage de contenu
--   [En cours] création des centre d'intérêts et des réseaux
--   gestion du responsive
--   ajouter un bouton download pour télécharger le CV en pdf
--   faire un cv pdf :'(
--   chercher un taff
+-   [Done] remplissage de contenu
+-   [Done] création des centre d'intérêts et des réseaux
+-   [~ Done] gestion du responsive
+-   [Done] ajouter un bouton download pour télécharger le CV en pdf
+-   [Done] faire un cv pdf :'(
+-   [In Progress] chercher un taff
