@@ -46,6 +46,10 @@ const PDFSkills = () => {
             linkedin: 'linkedin-mark-white.png',
             vitrine: 'website-icon.png',
         }
+        console.log(
+            'reading image',
+            `${window.location.origin}${window.location.pathname}img/${keyToIconMap[key]}`
+        )
 
         return `${window.location.origin}${window.location.pathname}img/${keyToIconMap[key]}`
     }, [])
