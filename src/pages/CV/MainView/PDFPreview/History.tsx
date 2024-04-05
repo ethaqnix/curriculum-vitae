@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from '@react-pdf/renderer'
+import { StyleSheet, View } from '@react-pdf/renderer'
 import HistorySection from './History/HistorySection'
 import { useTranslation } from 'react-i18next'
 import { experiences } from '@pages/CV/data/experiences'
@@ -31,10 +31,13 @@ const PDFHistory = () => {
                 {experiences.map((item) => (
                     <PDFHistoryItem item={item}>
                         <View style={styles.list}>
-                            {Object.values(
+                            {Object.entries(
                                 t(`pdf:${item.key}`, { returnObjects: true })
-                            ).map((experience: string) => (
-                                <PDFHistoryListItem text={experience} />
+                            ).map(([key, experience]) => (
+                                <PDFHistoryListItem
+                                    text={experience}
+                                    key={key}
+                                />
                             ))}
                         </View>
                     </PDFHistoryItem>
@@ -42,7 +45,7 @@ const PDFHistory = () => {
             </HistorySection>
             <HistorySection title={t(`main:formations`)}>
                 {formations.map((item) => (
-                    <PDFHistoryItem item={item}>
+                    <PDFHistoryItem item={item} key={item.key}>
                         <PDFHistoryKeywords
                             keywords={Object.values(
                                 t(`pdf:${item.key}`, { returnObjects: true })
@@ -53,45 +56,6 @@ const PDFHistory = () => {
             </HistorySection>
         </View>
     )
-}
-
-{
-    /*<View style={PDFStyles.section}>
-    <PDFText variant="title">
-        {t(`main:formations`)}
-    </PDFText>
-    {formations.map(({ key }) => (
-        <View
-            style={PDFStyles.historyItem}
-            wrap={false}
-        >
-            <PDFText variant="subtitle">
-                {t(`main:${key}`)}
-            </PDFText>
-            <PDFText variant="text">
-                {t(`main:formation.${key}`)}
-            </PDFText>
-        </View>
-    ))}
-</View>
-<View style={PDFStyles.section}>
-    <PDFText variant="title">
-        {t(`main:experiences`)}
-    </PDFText>
-    {experiences.map(({ key }) => (
-        <View
-            style={PDFStyles.historyItem}
-            wrap={false}
-        >
-            <PDFText variant="subtitle">
-                {t(`main:${key}`)}
-            </PDFText>
-            <PDFText variant="text">
-                {t(`main:experience.${key}`)}
-            </PDFText>
-        </View>
-    ))}
-</View>*/
 }
 
 export default PDFHistory
