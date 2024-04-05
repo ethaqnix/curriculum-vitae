@@ -7,9 +7,12 @@ import Interests from './Interests'
 import Langages from './Langages'
 import Contacts from './Contacts'
 import MainView from './MainView'
+import { Outlet, useOutlet } from 'react-router-dom'
+import History from './MainView/History'
 
 const CV = () => {
     const { t } = useTranslation('common')
+    const outlet = useOutlet()
 
     return (
         <div className={styles.root}>
@@ -35,7 +38,7 @@ const CV = () => {
                 </div>
             </section>
             <section className={styles.mainView} id="history-section">
-                <MainView />
+                {outlet || <History />}
             </section>
         </div>
     )

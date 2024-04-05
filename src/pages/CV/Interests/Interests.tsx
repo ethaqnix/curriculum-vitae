@@ -1,14 +1,13 @@
 import React from 'react'
 import styles from './Interests.module.scss'
 import { useTranslation } from 'react-i18next'
-import { useView } from '@contexts/ViewContext'
-import { changePage } from '@contexts/ViewContext/action'
+import { useNavigate } from 'react-router-dom'
 
 interface InterestsProps {}
 
 const Interests = (props: InterestsProps) => {
     const { t } = useTranslation()
-    const [, dispatch] = useView()
+    const navigate = useNavigate()
 
     let musicUrls = {
         'Gaël Faye (ft. Flavia Coelho) - Balade brésilienne':
@@ -39,15 +38,12 @@ const Interests = (props: InterestsProps) => {
                     <span title={name} key={name}>
                         <a
                             onClick={() =>
-                                dispatch(
-                                    changePage({
-                                        page: 'music',
-                                        additionnalData: {
-                                            musicUrl: url,
-                                            title: name,
-                                        },
-                                    })
-                                )
+                                navigate('/curriculum-vitae/music', {
+                                    state: {
+                                        musicUrl: url,
+                                        title: name,
+                                    },
+                                })
                             }
                         >
                             <img
