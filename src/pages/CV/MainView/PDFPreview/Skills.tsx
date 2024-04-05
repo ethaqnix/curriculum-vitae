@@ -60,12 +60,17 @@ const PDFSkills = () => {
                 {defaultSkills
                     .filter(({ includeInPDF }) => !!includeInPDF)
                     .map(({ title, level }) => (
-                        <PDFSkillBar title={title} percentage={level * 20} />
+                        <PDFSkillBar
+                            title={title}
+                            percentage={level * 20}
+                            key={title}
+                        />
                     ))}
             </SkillSection>
             <SkillSection title={t('common:languages')}>
                 {Object.entries(profile.languages).map(([language, level]) => (
                     <PDFSkillBar
+                        key={language}
                         title={t(`common:language.${language}`)}
                         percentage={getLanguageLevelPercentage(level)}
                     />
@@ -73,12 +78,16 @@ const PDFSkills = () => {
             </SkillSection>
             <SkillSection title={t('common:interests')}>
                 {profile.interests.map((value) => (
-                    <PDFSkillListItem text={t(`common:interest.${value}`)} />
+                    <PDFSkillListItem
+                        text={t(`common:interest.${value}`)}
+                        key={value}
+                    />
                 ))}
             </SkillSection>
             <SkillSection title={t('common:socials')}>
                 {Object.entries(profile.socials).map(([key, url]) => (
                     <PDFSkillListItem
+                        key={key}
                         icon={
                             <Image style={styles.icon} src={getLinkIcon(key)} />
                         }
