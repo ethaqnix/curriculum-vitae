@@ -1,13 +1,13 @@
-import React from 'react'
-import styles from './Interests.module.scss'
-import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import styles from "./Interests.module.scss";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 interface InterestsProps {}
 
 const Interests = (props: InterestsProps) => {
-    const { t } = useTranslation()
-    const navigate = useNavigate()
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
   let musicUrls = {
     "Gaël Faye (ft. Flavia Coelho) - Balade brésilienne":
@@ -26,36 +26,33 @@ const Interests = (props: InterestsProps) => {
       "https://www.youtube.com/embed/dQw4w9WgXcQ?si=77cfamn3NDCP8cs5&showinfo=0&autoplay=1&amp",
   };
 
-    return (
-        <div className={styles.root}>
-            <p>
-                <b>{t('common:interest.chess')}</b>
-            </p>
-            <div className={styles.music}>
-                <p>
-                    <b>{`${t('common:interest.music')} : `}</b>
-                </p>
-                {Object.entries(musicUrls).map(([name, url]) => (
-                    <span title={name} key={name}>
-                        <a
-                            onClick={() =>
-                                navigate('/curriculum-vitae/music', {
-                                    state: {
-                                        musicUrl: url,
-                                        title: name,
-                                    },
-                                })
-                            }
-                        >
-                            <img
-                                src="img/musical-note.png"
-                                className={styles.icon}
-                                alt="music icon"
-                            ></img>
-                        </a>
-                    </span>
-                ))}
-            </div>
+  return (
+    <div className={styles.root}>
+      <p>
+        <b>{t("common:interest.chess")}</b>
+      </p>
+      <div className={styles.music}>
+        <p>
+          <b>{`${t("common:interest.music")} : `}</b>
+        </p>
+        {Object.entries(musicUrls).map(([name, url]) => (
+          <span
+            title={name}
+            key={name}
+            onClick={() =>
+              navigate("/curriculum-vitae/music", {
+                state: {
+                  musicUrl: url,
+                  title: name,
+                },
+              })
+            }
+          >
+            <img
+              src="img/musical-note.png"
+              className={styles.icon}
+              alt="music icon"
+            ></img>
           </span>
         ))}
       </div>
