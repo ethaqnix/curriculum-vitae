@@ -6,26 +6,13 @@ import PDFSkills from './Skills'
 import PDFHistory from './History'
 import PDFFooter from './Footer'
 import colors from './colors'
-Font.register({
-    family: 'Poppins',
-    src: 'http://fonts.gstatic.com/s/poppins/v1/TDTjCH39JjVycIF24TlO-Q.ttf',
-})
+import { fonts } from './fonts'
 
-Font.register({
-    family: 'Roboto',
-    fonts: [
-        {
-            src: 'http://fonts.gstatic.com/s/roboto/v15/W5F8_SL0XFawnjxHGsZjJA.ttf',
-        },
-        {
-            src: 'http://fonts.gstatic.com/s/roboto/v15/bdHGHleUa-ndQCOrdpfxfw.ttf',
-            fontStyle: 'bold',
-        },
-        {
-            src: 'http://fonts.gstatic.com/s/roboto/v15/dtpHsbgPEm2lVWciJZ0P-A.ttf',
-            fontWeight: 'light',
-        },
-    ],
+Object.entries(fonts).map(([family, fonts]) => {
+    Font.register({
+        family,
+        fonts,
+    })
 })
 
 interface PDFPreviewProps {}

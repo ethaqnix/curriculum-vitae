@@ -1,24 +1,27 @@
-import React, { Dispatch } from 'react'
+import React from 'react'
 import styles from './MusicPreview.module.scss'
 import { CloseIcon } from '@components/Icons'
-import { useView } from '@contexts/ViewContext'
-import { ViewAction, changePage } from '@contexts/ViewContext/action'
-import { MusicViewState } from '@contexts/ViewContext/context'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 
 const MusicPreview = () => {
-    const [
-        {
-            additionnalData: { musicUrl, title },
-        },
-        dispatch,
-    ] = useView() as [MusicViewState, Dispatch<ViewAction>]
+    const navigate = useNavigate()
+    const { state } = useLocation()
+
+    if (!state) {
+        return <Navigate to="/curriculum-vitae/" replace={true} />
+    }
+
+    const { title, musicUrl } = state
+
     const width = 450
 
     return (
         <div className={styles.root}>
             <CloseIcon
                 onClick={() => {
-                    dispatch(changePage({ page: 'history' }))
+                    navigate(
+                        new URL('..', window.origin + location.pathname + '/')
+                    )
                 }}
             />
             <h2>{title}</h2>

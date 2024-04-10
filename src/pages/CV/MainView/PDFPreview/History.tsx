@@ -31,18 +31,18 @@ const PDFHistory = () => {
         {experiences.map((item) => (
           <PDFHistoryItem item={item}>
             <View style={styles.list}>
-              {Object.values(t(`pdf:${item.key}`, { returnObjects: true })).map(
-                (experience: string) => (
-                  <PDFHistoryListItem text={experience} />
-                )
-              )}
+              {Object.entries(
+                t(`pdf:${item.key}`, { returnObjects: true })
+              ).map(([key, experience]) => (
+                <PDFHistoryListItem text={experience} key={key} />
+              ))}
             </View>
           </PDFHistoryItem>
         ))}
       </HistorySection>
       <HistorySection title={t(`main:formations`)}>
         {formations.map((item) => (
-          <PDFHistoryItem item={item}>
+          <PDFHistoryItem item={item} key={item.key}>
             <PDFHistoryKeywords
               keywords={Object.values(
                 t(`pdf:${item.key}`, { returnObjects: true })
