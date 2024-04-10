@@ -1,39 +1,21 @@
 {
-    "include": ["./src", ".jest/reactTestingLibrary.config.tsx", "index.d.ts"],
-    "exclude": ["node_modules"],
-
-    "compilerOptions": {
-        "target": "ESNext",
-        "useDefineForClassFields": true,
-        "lib": ["DOM", "DOM.Iterable", "ESNext"],
-        "allowJs": false,
-        "skipLibCheck": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "module": "ESNext",
-        "moduleResolution": "Node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "baseUrl": "./",
-        "noEmit": true,
-        "jsx": "react-jsx",
-        "noImplicitAny": true,
-        "types": ["vite-plugin-svgr/client"],
-        "typeRoots": ["./node_modules/@types"],
-        "paths": {
-            "@assets/*": ["./src/assets/*"],
-            "@components/*": ["./src/components/*"],
-            "@config/*": ["./src/config/*"],
-            "@contexts/*": ["./src/contexts/*"],
-            "@hooks/*": ["./src/hooks/*"],
-            "@mocks/*": ["src/mocks/*"],
-            "@pages/*": ["./src/pages/*"],
-            "@router/*": ["./src/router/*"],
-            "@rtlconfig": ["./.jest/reactTestingLibrary.config"],
-            "@typings/*": ["./src/typings/*"],
-            "@utils/*": ["./src/utils/*"]
-        }
-    }
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"],
+  "extends": "./tsconfig.paths.json"
 }

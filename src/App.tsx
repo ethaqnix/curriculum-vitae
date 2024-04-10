@@ -1,15 +1,15 @@
-import AppContainer from '@pages/AppContainer'
+import AppContainer from "@pages/AppContainer";
 
-import './App.module.scss'
-import './i18n'
-import { Suspense } from 'react'
+import "./App.module.scss";
+import "./i18n";
+import { Suspense } from "react";
 
 function App() {
-    return (
-        <Suspense fallback={<div>Loading... </div>}>
-            <AppContainer />
-        </Suspense>
-    )
+  return (
+    <Suspense fallback={<div>Loading... </div>}>
+      <AppContainer />
+    </Suspense>
+  );
 }
 
-export default App
+export default App;
