@@ -3,4 +3,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.autoClosingBrackets": "always",
     "editor.autoClosingDelete": "always",
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
