@@ -39,10 +39,9 @@ jobs:
       - name: debug
         run: ls -la ./build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           # Upload dist repository
-          name: page
           path: build
       - name: Deploy to GitHub Pages
         id: deployment
