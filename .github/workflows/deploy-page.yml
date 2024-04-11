@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Upload artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v4
         with:
           name: page
           path: build
@@ -53,9 +53,9 @@ jobs:
         with:
           name: page
           path: .
-      - uses: actions/configure-pages@v1
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: .
       - id: deployment
-        uses: actions/deploy-pages@main
+        uses: actions/deploy-pages@v4
