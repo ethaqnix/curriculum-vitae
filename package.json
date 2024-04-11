@@ -1,6 +1,6 @@
 {
   "name": "curriculum-vitae",
-  "base": "/curriculum-vitae/",
+  "homepage": "/curriculum-vitae/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
