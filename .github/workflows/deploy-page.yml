@@ -40,9 +40,6 @@ jobs:
           name: page
           path: build
           if-no-files-found: error
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
 
   deploy:
     runs-on: ubuntu-latest
