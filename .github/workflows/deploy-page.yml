@@ -39,7 +39,7 @@ jobs:
       - name: debug
         run: ls -la ./build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist repository
           path: build
