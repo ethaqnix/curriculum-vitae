@@ -37,7 +37,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: debug
-        run: ls -la ./build
+        run: ls -lR ./build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
