@@ -27,19 +27,18 @@ const ScrollableText = ({ children, className = "" }: ScrollableTextProps) => {
   }, [ref?.current?.scrollHeight]);
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} data-testid="scrollable-text-container">
       <div
         className={classnames({
           [styles["scroll-effect-top"]]: !onTop,
         })}
+        data-testid="scrollable-text-effect-top"
       />
       <div
         ref={ref}
         onScroll={onScroll}
-        className={classnames({
-          [styles.scroll]: true,
-          [className]: true,
-        })}
+        className={classnames(styles.scroll, className)}
+        data-testid="scrollable-text"
       >
         {children}
       </div>
@@ -47,6 +46,7 @@ const ScrollableText = ({ children, className = "" }: ScrollableTextProps) => {
         className={classnames({
           [styles["scroll-effect-bottom"]]: !onBottom,
         })}
+        data-testid="scrollable-text-effect-bottom"
       />
     </div>
   );
