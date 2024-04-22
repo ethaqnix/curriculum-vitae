@@ -7,7 +7,10 @@ interface ProfilePictureProps {}
 const ProfilePicture: React.FC<ProfilePictureProps> = () => {
   return (
     <div className={classNames(styles["profilePicture"])}>
-      <img src="img/profilePicture.jpg" alt="coucou c'est moi" />
+      <img
+        src={`${process.env.PUBLIC_URL}/img/profilePicture.jpg`}
+        alt="coucou c'est moi"
+      />
     </div>
   );
 };

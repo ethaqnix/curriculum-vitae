@@ -49,7 +49,7 @@ const Interests = (props: InterestsProps) => {
             }
           >
             <img
-              src="img/musical-note.png"
+              src={`${process.env.PUBLIC_URL}/img/musical-note.png`}
               className={styles.icon}
               alt="music icon"
             ></img>
