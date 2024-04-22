@@ -48,10 +48,10 @@ const PDFSkills = () => {
     };
     console.log(
       "reading image",
-      `${window.location.origin}${window.location.pathname}img/${keyToIconMap[key]}`
+      `${window.location.origin}${window.location.pathname}/img/${keyToIconMap[key]}`
     );
 
-    return `${window.location.origin}${window.location.pathname}img/${keyToIconMap[key]}`;
+    return `${window.location.origin}${window.location.pathname}/img/${keyToIconMap[key]}`;
   }, []);
 
   return (
